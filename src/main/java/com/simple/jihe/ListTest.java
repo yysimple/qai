@@ -3,6 +3,7 @@ package com.simple.jihe;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * 项目: mianshi-test
@@ -15,13 +16,14 @@ import java.util.List;
 public class ListTest {
     public static void main(String[] args) {
         ListTest listTest = new ListTest();
-        // listTest.testContainsAll();
+        listTest.testContainsAll();
         listTest.testListObject();
         List<String> linkList = new LinkedList<>();
     }
 
     public void testContainsAll() {
         List<String> list1 = new ArrayList<>();
+        System.out.println(list1.size());
         list1.add("a");
         list1.add("b");
         list1.add("c");
