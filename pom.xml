@@ -28,11 +28,11 @@
             <artifactId>spring-web</artifactId>
         </dependency>
 
-        <!-- spring security 安全认证 -->
+<!--        &lt;!&ndash; spring security 安全认证 &ndash;&gt;
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- lombok -->
         <dependency>
@@ -120,10 +120,10 @@
             <scope>test</scope>
         </dependency> <!-- spring-boot-starter-test -->
 
-        <dependency>
+      <!--  <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        </dependency>-->
         <!-- mybatis -->
         <dependency>
             <groupId>com.baomidou</groupId>

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 项目: mianshi-test
@@ -15,7 +16,6 @@ import java.util.concurrent.ConcurrentHashMap;
  **/
 public class MapTest {
     public static void main(String[] args) {
-
         /**
          * 对键值没有限制，都可以为空
          * 扩容：newThr = oldThr << 1; // double threshold
