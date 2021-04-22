@@ -9,7 +9,7 @@ import java.net.Socket;
 /**
  * 项目: mianshi-test
  * <p>
- * 功能描述: 消息消费的客户端
+ * 功能描述: 消息的客户端（对外提供的api一样）
  *
  * @author: WuChengXing
  * @create: 2021-04-22 23:54

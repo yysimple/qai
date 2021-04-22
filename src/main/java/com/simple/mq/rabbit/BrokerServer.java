@@ -16,10 +16,18 @@ import java.net.Socket;
  * @create: 2021-04-22 23:52
  **/
 public class BrokerServer implements Runnable {
+    /**
+     * 设置的监听端口
+     */
     public static int SERVICE_PORT = 9999;
 
     private final Socket socket;
 
+    /**
+     * 初始化一个socket
+     *
+     * @param socket
+     */
     public BrokerServer(Socket socket) {
         this.socket = socket;
     }
@@ -27,8 +35,10 @@ public class BrokerServer implements Runnable {
     @Override
     public void run() {
         try (
+                // 从socket中读取数据
                 BufferedReader in = new BufferedReader(new InputStreamReader(
                         socket.getInputStream()));
+                // 写出数据
                 PrintWriter out = new PrintWriter(socket.getOutputStream())
         ) {
             while (true) {

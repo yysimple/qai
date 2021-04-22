@@ -28,10 +28,11 @@ public class Broker {
     /**
      * 保存消息数据的容器
      */
-    private static ArrayBlockingQueue<String> messageQueue = new ArrayBlockingQueue<String>(MAX_SIZE);
+    private static ArrayBlockingQueue<String> messageQueue = new ArrayBlockingQueue<>(MAX_SIZE);
 
     /**
      * 生产消息
+     * tip：这里是消息投递的过程，放入到初始化的队列中
      *
      * @param msg
      */
@@ -46,6 +47,7 @@ public class Broker {
 
     /**
      * 消费消息
+     * tip： 从队列里将消息取出来
      *
      * @return
      */
