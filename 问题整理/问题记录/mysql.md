@@ -60,6 +60,8 @@ https://blog.csdn.net/weixin_44704261/article/details/106650963
 32. 分库分表后的后遗症？怎么解决？
 33. 单机mysql数据库的性能瓶颈是多少？
 34. OLTP与OLAP的关系是什么？
+35. 一般使用什么进行分库分表？了解原理吗？
+36. mysql的主从复制了解吗？
  
 
 
