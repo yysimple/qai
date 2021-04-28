@@ -54,14 +54,36 @@ https://blog.csdn.net/weixin_44704261/article/details/106648309
 27. 查询中哪些情况不会使用索引？
 https://blog.csdn.net/weixin_44704261/article/details/106650963
 28. Buffer Pool讲讲是什么？
+https://blog.csdn.net/qq_35599414/article/details/115523726
+> 其中每个Buffer Pool的大小默认是128M，
+  每个chunk（缓冲数据块）的默认大小是128M。
+  每个Buffer Pool的总大小 = chunk大小*buffer pool数量*N倍
+
 29. 怎么知道 Buffer Pool 中的数据就是脏数据了？
+> flush链
 30. Buffer Pool 中的脏数据这么多，哪些应该先输入到磁盘中呢？Buffer Pool 满了又该怎么办？
+> 链表形式，先进先出
+> 满了之后会有 lru链的淘汰机制（最近最少使用） ==》 再不行就进行chunk
 31. 讲讲数据库的分库分表？
+> 垂直、水平
+
 32. 分库分表后的后遗症？怎么解决？
+> 分页问题
+> 跨表join
 33. 单机mysql数据库的性能瓶颈是多少？
+https://blog.csdn.net/oahz4699092zhao/article/details/53332105
+> 需要根据机器的性能来进行判断 sysbench进行测试
+> 4核 4g 50G硬盘
+> qps大概：1200  tps：60
 34. OLTP与OLAP的关系是什么？
+https://www.zhihu.com/question/24110442/answer/851671343
 35. 一般使用什么进行分库分表？了解原理吗？
+> sharding-jdbc
 36. mysql的主从复制了解吗？
+> 主从的话是基于mysql进行配置的
+> 读写分离是基于中间件，类似于sharding-jdbc的读写分离
+>
+
  
 
 
