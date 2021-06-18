@@ -1,8 +1,6 @@
 package com.simple.designpatterns.pattern23.creationtype.builder.material;
 
 import com.simple.designpatterns.pattern23.creationtype.builder.constant.BuilderConstant;
-import io.swagger.models.auth.In;
-import lombok.Builder;
 
 import java.math.BigDecimal;
 
@@ -20,16 +18,8 @@ public class Intel extends CPU {
         this(brand, price, size, "Intel-我就是喜欢挤牙膏...");
     }
 
-    public BigDecimal showSku(String level) {
-        super.brand = "Intel-i9750H";
-        super.price = new BigDecimal("2000");
-        super.size = "标压";
-        super.desc = "Intel-我就是喜欢挤牙膏...";
-        return price;
-    }
-
-    static class LevelFactory {
-        public static Intel create(String level) {
+    static class IntelFactory {
+        public static CPU create(String level) {
             if (BuilderConstant.LEVEL_HIGH.equals(level)) {
                 return getHighIntel();
             } else if (BuilderConstant.LEVEL_MID.equals(level)) {

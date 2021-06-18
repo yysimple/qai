@@ -5,12 +5,16 @@ import com.simple.designpatterns.pattern23.creationtype.builder.constant.Builder
 import java.math.BigDecimal;
 
 /**
- * @author chengxing.wu@xiaobao100.com
- * @date 2021/6/18 10:27
- */
-public class Disk extends Material{
+ * 项目: question-study-improve
+ * <p>
+ * 功能描述:
+ *
+ * @author: WuChengXing
+ * @create: 2021-06-18 23:55
+ **/
+public class Memory extends Material {
 
-    protected Disk(String brand, BigDecimal price, String size, String desc) {
+    protected Memory(String brand, BigDecimal price, String size, String desc) {
         super(brand, price, size, desc);
     }
 }
