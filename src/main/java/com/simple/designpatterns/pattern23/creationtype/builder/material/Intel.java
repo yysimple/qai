@@ -32,6 +32,12 @@ public class Intel extends CPU {
         public static Intel create(String level) {
             if (BuilderConstant.LEVEL_HIGH.equals(level)) {
                 return getHighIntel();
+            } else if (BuilderConstant.LEVEL_MID.equals(level)) {
+                return getMidIntel();
+            } else if (BuilderConstant.LEVEL_LOW.equals(level)) {
+                return getLowIntel();
+            } else {
+                return null;
             }
         }
 
