@@ -8,9 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="question-study-improve" />
+        <module name="pagination-simple-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="pagination-simple-boot-starter" target="8" />
       <module name="question-study-improve" target="1.8" />
     </bytecodeTargetLevel>
   </component>
