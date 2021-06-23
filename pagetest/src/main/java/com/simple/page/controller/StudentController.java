@@ -32,4 +32,9 @@ public class StudentController {
         return new SimpleResponse<>(studentPage);
     }
 
+    @GetMapping("/hello")
+    public SimpleResponse<String> hello() {
+        return new SimpleResponse<>("test");
+    }
+
 }

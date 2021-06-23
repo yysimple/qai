@@ -4,10 +4,9 @@ import com.simple.page.domain.Classroom;
 import com.simple.page.service.ClassroomService;
 import com.simple.page.util.SimpleResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author chengxing.wu@xiaobao100.com
@@ -22,6 +21,11 @@ public class ClassroomController {
     @PostMapping("/save")
     public SimpleResponse<Boolean> save(@RequestBody Classroom classroom) {
         return new SimpleResponse<>(classroomService.save(classroom));
+    }
+
+    @GetMapping("/list")
+    public SimpleResponse<List<Classroom>> list() {
+        return new SimpleResponse<>(classroomService.list());
     }
 
 }

@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Service
 public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
-implements StudentService{
+        implements StudentService {
 
     @Resource
     StudentMapper studentMapper;

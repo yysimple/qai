@@ -7,10 +7,10 @@
     <resultMap id="BaseResultMap" type="com.simple.page.domain.Classroom">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="classroomName" column="classroom_name" jdbcType="VARCHAR"/>
-            <result property="desc" column="desc" jdbcType="VARCHAR"/>
+            <result property="classroomDescribe" column="desc" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,classroom_name,desc
+        id,classroom_name,classroomDescribe
     </sql>
 </mapper>

@@ -33,7 +33,7 @@ public class Student implements Serializable {
     /**
      * 学生描述
      */
-    private String desc;
+    private String studentDescribe;
 
     /**
      * 所属班级
@@ -58,7 +58,7 @@ public class Student implements Serializable {
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getAge() == null ? other.getAge() == null : this.getAge().equals(other.getAge()))
-            && (this.getDesc() == null ? other.getDesc() == null : this.getDesc().equals(other.getDesc()))
+            && (this.getStudentDescribe() == null ? other.getStudentDescribe() == null : this.getStudentDescribe().equals(other.getStudentDescribe()))
             && (this.getClassroomId() == null ? other.getClassroomId() == null : this.getClassroomId().equals(other.getClassroomId()));
     }
 
@@ -69,7 +69,7 @@ public class Student implements Serializable {
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getAge() == null) ? 0 : getAge().hashCode());
-        result = prime * result + ((getDesc() == null) ? 0 : getDesc().hashCode());
+        result = prime * result + ((getStudentDescribe() == null) ? 0 : getStudentDescribe().hashCode());
         result = prime * result + ((getClassroomId() == null) ? 0 : getClassroomId().hashCode());
         return result;
     }
@@ -83,7 +83,7 @@ public class Student implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
         sb.append(", age=").append(age);
-        sb.append(", desc=").append(desc);
+        sb.append(", desc=").append(studentDescribe);
         sb.append(", classroomId=").append(classroomId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

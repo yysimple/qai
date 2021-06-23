@@ -28,7 +28,7 @@ public class Classroom implements Serializable {
     /**
      * 班级描述
      */
-    private String desc;
+    private String classroomDescribe;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class Classroom implements Serializable {
         Classroom other = (Classroom) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getClassroomName() == null ? other.getClassroomName() == null : this.getClassroomName().equals(other.getClassroomName()))
-            && (this.getDesc() == null ? other.getDesc() == null : this.getDesc().equals(other.getDesc()));
+            && (this.getClassroomDescribe() == null ? other.getClassroomDescribe() == null : this.getClassroomDescribe().equals(other.getClassroomDescribe()));
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Classroom implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getClassroomName() == null) ? 0 : getClassroomName().hashCode());
-        result = prime * result + ((getDesc() == null) ? 0 : getDesc().hashCode());
+        result = prime * result + ((getClassroomDescribe() == null) ? 0 : getClassroomDescribe().hashCode());
         return result;
     }
 
@@ -68,7 +68,7 @@ public class Classroom implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", classroomName=").append(classroomName);
-        sb.append(", desc=").append(desc);
+        sb.append(", desc=").append(classroomDescribe);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

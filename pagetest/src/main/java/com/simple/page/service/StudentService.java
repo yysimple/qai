@@ -12,5 +12,5 @@ import java.util.List;
  */
 public interface StudentService extends IService<Student> {
 
-    Page<Student> listStudent(StudentIbo studentIbo);
+     Page<Student> listStudent(StudentIbo studentIbo);
 }
