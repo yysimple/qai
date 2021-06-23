@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 public class RedisTest {
 
-    @Autowired
+    /*@Autowired
     RedisTemplate redisTemplate;
 
     @Test
@@ -39,5 +39,5 @@ public class RedisTest {
             System.out.println(Thread.currentThread().getName() + ": " + a2);
             redisTemplate.opsForValue().set("aaa", a2);
         }, "B").start();
-    }
+    }*/
 }

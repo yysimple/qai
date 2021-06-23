@@ -1,8 +1,5 @@
 package com.simple.config;
 
-import org.redisson.Redisson;
-import org.redisson.api.RedissonClient;
-import org.redisson.config.Config;
 import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
@@ -17,7 +14,7 @@ import java.io.IOException;
  **/
 public class RedissonConfig {
 
-    @Bean(destroyMethod = "shutdown")
+    /*@Bean(destroyMethod = "shutdown")
     RedissonClient redissonClient() throws IOException {
         Config config = new Config();
         config.useSingleServer()
@@ -26,5 +23,5 @@ public class RedissonConfig {
                 .setAddress("redis://192.168.109.135:6379")
                 .setPassword("123456");
         return Redisson.create(config);
-    }
+    }*/
 }

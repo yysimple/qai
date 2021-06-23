@@ -9,15 +9,19 @@
         <outputRelativeToContentRoot value="true" />
         <module name="question-study-improve" />
         <module name="pagination-simple-boot-starter" />
+        <module name="pagetest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="pagination-simple-boot-starter" target="8" />
+      <module name="pagetest" target="1.8" />
+      <module name="pagination-simple-boot-starter" target="1.8" />
       <module name="question-study-improve" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="pagetest" options="-parameters" />
+      <module name="pagination-simple-boot-starter" options="-parameters" />
       <module name="question-study-improve" options="-parameters" />
     </option>
   </component>

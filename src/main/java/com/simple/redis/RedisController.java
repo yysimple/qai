@@ -1,8 +1,5 @@
 package com.simple.redis;
 
-import org.redisson.Redisson;
-import org.redisson.api.RLock;
-import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundValueOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -26,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 public class RedisController {
 
-    @Autowired
+    /*@Autowired
     private StringRedisTemplate stringRedisTemplate;
 
     @Autowired
@@ -36,14 +33,14 @@ public class RedisController {
     public String deductStock() {
         String lock = "stock_lock";
         BoundValueOperations<String, String> stringBound = stringRedisTemplate.boundValueOps("stock");
-        /*BoundValueOperations<String, String> stockLock = stringRedisTemplate.boundValueOps(lock);
+        *//*BoundValueOperations<String, String> stockLock = stringRedisTemplate.boundValueOps(lock);
         // 客户端id（解决因为业务时间过长导致锁失效的问题（大多数是线程之间释放另外线程的锁））
         String clientId = UUID.randomUUID().toString();
         // 获取到一个锁
         Boolean a = stockLock.setIfAbsent(clientId, 10, TimeUnit.SECONDS);
         if (!a) {
             return "error";
-        }*/
+        }*//*
         RLock rLock = redissonClient.getLock(lock);
         try {
             rLock.lock();
@@ -56,11 +53,11 @@ public class RedisController {
                 System.out.println("库存不足");
             }
         } finally {
-           /* if (clientId.equals(stockLock.get())) {
+           *//* if (clientId.equals(stockLock.get())) {
                 stringRedisTemplate.delete(lock);
-            }*/
+            }*//*
             rLock.unlock();
         }
         return "ok";
-    }
+    }*/
 }
