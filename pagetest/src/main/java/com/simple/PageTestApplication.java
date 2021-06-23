@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2021/6/23 15:46
  */
 @SpringBootApplication
-@MapperScan(basePackages = "com.simple.page")
+@MapperScan(basePackages = "com.simple.page.mapper")
 public class PageTestApplication {
     public static void main(String[] args) {
         SpringApplication.run(PageTestApplication.class, args);

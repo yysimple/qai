@@ -1,13 +1,14 @@
 package com.simple.page.controller;
 
 import com.simple.page.domain.Student;
+import com.simple.page.ibo.StudentIbo;
 import com.simple.page.service.StudentService;
 import com.simple.page.util.SimpleResponse;
+import com.simple.pagination.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author chengxing.wu@xiaobao100.com
@@ -23,6 +24,12 @@ public class StudentController {
     @PostMapping("/save")
     public SimpleResponse<Boolean> save(@RequestBody Student student) {
         return new SimpleResponse<>(studentService.save(student));
+    }
+
+    @PostMapping("/list")
+    public SimpleResponse<Page<Student>> listStudent(@RequestBody StudentIbo studentIbo) {
+        Page<Student> studentPage = studentService.listStudent(studentIbo);
+        return new SimpleResponse<>(studentPage);
     }
 
 }

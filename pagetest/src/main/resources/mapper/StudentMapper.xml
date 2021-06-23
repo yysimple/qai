@@ -16,4 +16,8 @@
         id,name,age,
         desc,classroom_id
     </sql>
+
+    <select id="listStudent" resultType="com.simple.page.domain.Student">
+        select * from student;
+    </select>
 </mapper>
