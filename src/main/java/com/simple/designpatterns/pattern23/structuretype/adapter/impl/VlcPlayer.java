@@ -1,4 +1,6 @@
-package com.simple.designpatterns.pattern23.structuretype.adapter;
+package com.simple.designpatterns.pattern23.structuretype.adapter.impl;
+
+import com.simple.designpatterns.pattern23.structuretype.adapter.AdvancedMediaPlayer;
 
 /**
  * 项目: question-study-improve
@@ -8,7 +10,7 @@ package com.simple.designpatterns.pattern23.structuretype.adapter;
  * @author: WuChengXing
  * @create: 2021-06-20 12:55
  **/
-public class VlcPlayer implements AdvancedMediaPlayer{
+public class VlcPlayer implements AdvancedMediaPlayer {
     @Override
     public void playVlc(String fileName) {
         System.out.println("Playing vlc file. Name: "+ fileName);

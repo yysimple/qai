@@ -1,4 +1,6 @@
-package com.simple.designpatterns.pattern23.structuretype.adapter;
+package com.simple.designpatterns.pattern23.structuretype.adapter.impl;
+
+import com.simple.designpatterns.pattern23.structuretype.adapter.AdvancedMediaPlayer;
 
 /**
  * 项目: question-study-improve

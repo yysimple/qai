@@ -1,5 +1,8 @@
 package com.simple.designpatterns.pattern23.structuretype.adapter;
 
+import com.simple.designpatterns.pattern23.structuretype.adapter.impl.Mp4Player;
+import com.simple.designpatterns.pattern23.structuretype.adapter.impl.VlcPlayer;
+
 /**
  * 项目: question-study-improve
  * <p>
