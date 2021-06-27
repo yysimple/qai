@@ -1,8 +1,8 @@
-package com.simple.designpatterns.pattern23.structuretype.responsibilitychain;
+package com.simple.designpatterns.pattern23.behavioral.responsibilitychain;
 
-import com.simple.designpatterns.pattern23.structuretype.responsibilitychain.impl.ConsoleLogger;
-import com.simple.designpatterns.pattern23.structuretype.responsibilitychain.impl.ErrorLogger;
-import com.simple.designpatterns.pattern23.structuretype.responsibilitychain.impl.FileLogger;
+import com.simple.designpatterns.pattern23.behavioral.responsibilitychain.impl.ConsoleLogger;
+import com.simple.designpatterns.pattern23.behavioral.responsibilitychain.impl.ErrorLogger;
+import com.simple.designpatterns.pattern23.behavioral.responsibilitychain.impl.FileLogger;
 
 /**
  * 项目: question-study-improve

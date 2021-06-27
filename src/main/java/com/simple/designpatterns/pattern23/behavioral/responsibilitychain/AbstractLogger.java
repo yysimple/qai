@@ -1,4 +1,4 @@
-package com.simple.designpatterns.pattern23.structuretype.responsibilitychain;
+package com.simple.designpatterns.pattern23.behavioral.responsibilitychain;
 
 /**
  * 项目: question-study-improve

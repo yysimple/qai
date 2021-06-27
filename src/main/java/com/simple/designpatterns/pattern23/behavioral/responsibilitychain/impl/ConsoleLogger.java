@@ -1,6 +1,6 @@
-package com.simple.designpatterns.pattern23.structuretype.responsibilitychain.impl;
+package com.simple.designpatterns.pattern23.behavioral.responsibilitychain.impl;
 
-import com.simple.designpatterns.pattern23.structuretype.responsibilitychain.AbstractLogger;
+import com.simple.designpatterns.pattern23.behavioral.responsibilitychain.AbstractLogger;
 
 /**
  * 项目: question-study-improve
