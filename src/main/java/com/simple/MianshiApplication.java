@@ -14,7 +14,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @create: 2021-04-07 18:54
  **/
 @SpringBootApplication
-@MapperScan(basePackages = "com.simple")
+@MapperScan(basePackages = {
+        "com.simple.designpatterns.pattern23.structuretype.proxy"
+})
 public class MianshiApplication {
     public static void main(String[] args) {
         SpringApplication.run(MianshiApplication.class, args);
