@@ -23,7 +23,7 @@ public class Student implements Serializable {
     /**
      * 学生姓名
      */
-    private String name;
+    private String studentName;
 
     /**
      * 学生年龄
@@ -56,7 +56,7 @@ public class Student implements Serializable {
         }
         Student other = (Student) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getStudentName() == null ? other.getStudentName() == null : this.getStudentName().equals(other.getStudentName()))
             && (this.getAge() == null ? other.getAge() == null : this.getAge().equals(other.getAge()))
             && (this.getStudentDescribe() == null ? other.getStudentDescribe() == null : this.getStudentDescribe().equals(other.getStudentDescribe()))
             && (this.getClassroomId() == null ? other.getClassroomId() == null : this.getClassroomId().equals(other.getClassroomId()));
@@ -67,7 +67,7 @@ public class Student implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getStudentName() == null) ? 0 : getStudentName().hashCode());
         result = prime * result + ((getAge() == null) ? 0 : getAge().hashCode());
         result = prime * result + ((getStudentDescribe() == null) ? 0 : getStudentDescribe().hashCode());
         result = prime * result + ((getClassroomId() == null) ? 0 : getClassroomId().hashCode());
@@ -81,7 +81,7 @@ public class Student implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
+        sb.append(", name=").append(studentName);
         sb.append(", age=").append(age);
         sb.append(", desc=").append(studentDescribe);
         sb.append(", classroomId=").append(classroomId);
