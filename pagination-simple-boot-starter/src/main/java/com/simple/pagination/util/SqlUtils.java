@@ -8,6 +8,7 @@ import com.alibaba.druid.sql.ast.statement.*;
 import com.alibaba.druid.util.JdbcConstants;
 import com.simple.pagination.dialect.SqlDialect;
 import com.simple.pagination.exception.IllegalSqlException;
+import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -199,5 +200,21 @@ public final class SqlUtils {
             default:
                 return JdbcConstants.MYSQL;
         }
+    }
+
+    /**
+     * 解析url
+     *
+     * @return
+     */
+    public static SqlDialect parseDataSourceUrl(String url) {
+        List<String> flags = Arrays.asList(url.split(":"));
+        if (CollectionUtils.isEmpty(flags)) {
+            return null;
+        }
+        if (StringUtils.isBlank(flags.get(0)) || !"jdbc".equals(flags.get(0))) {
+            return null;
+        }
+        return SqlDialect.get(flags.get(1));
     }
 }

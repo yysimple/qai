@@ -45,12 +45,22 @@ public class PaginationInterceptor implements Interceptor {
         this.dialect = settings.getDialect();
     }
 
-
+    /**
+     * 实现mybatis提供的拦截器（其实就是插件的切入点，追到源码就可以看到 -- pluginAll）
+     *
+     * @param invocation
+     * @return
+     * @throws Throwable
+     */
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
+        // @Intercepts 这里的参数顺序取值
         Object[] args = invocation.getArgs();
+        // 可以拿到该方法之后的返回值类型，操作类型时什么（query-这是mybatis定义的查询key，然后返回的是List）/ returnType = interface java.util.List
         Method method = invocation.getMethod();
+        // ms则是一些元数据信息，包括是哪个接口，在那个文件下，方法名，全限定名，包括xml里面的sql语句等，传递的参数这里面也会有
         MappedStatement ms = (MappedStatement) args[0];
+        // 这里面就是传进来的参数
         Object parameter = args[1];
         Class<?> returnType = method.getReturnType();
         if (!isPageable(parameter, returnType)) {
@@ -153,6 +163,7 @@ public class PaginationInterceptor implements Interceptor {
 
     /**
      * Returns a new instanced object of {@link MappedStatement}.
+     *
      * @param ms   The origin {@link MappedStatement}
      * @param msId New id
      * @return a new instanced object of {@link MappedStatement}
@@ -187,6 +198,7 @@ public class PaginationInterceptor implements Interceptor {
 
     /**
      * Returns a new instanced object of {@link BoundSql}.
+     *
      * @param ms       The origin {@link MappedStatement}
      * @param boundSql The origin {@link BoundSql}
      * @param sql      SQL string
@@ -205,6 +217,7 @@ public class PaginationInterceptor implements Interceptor {
 
     /**
      * Returns <code>true</code> if pagination has been enabled.
+     *
      * @param parameter  The parameter
      * @param returnType Return type
      */
@@ -222,6 +235,7 @@ public class PaginationInterceptor implements Interceptor {
     /**
      * Returns <code>true</code> when {@link DisableCount} is absent
      * and enable count equals <code>true</code>.
+     *
      * @param parameter The parameter
      */
     private boolean isCounting(Object parameter) {
@@ -241,6 +255,7 @@ public class PaginationInterceptor implements Interceptor {
 
     /**
      * Returns {@link PaginationParam} from parameter.
+     *
      * @param parameter The parameter
      * @return {@link PaginationParam}
      */
@@ -340,6 +355,7 @@ public class PaginationInterceptor implements Interceptor {
 
     /**
      * Returns {@link PaginationUnrefinedParam} from parameter.
+     *
      * @param parameter The parameter
      * @return {@link PaginationUnrefinedParam}
      */
@@ -453,6 +469,7 @@ public class PaginationInterceptor implements Interceptor {
 
     /**
      * Builds {@link PaginationUnrefinedParam} from parameter.
+     *
      * @param parameter The parameter
      * @param mapType   Whether it is a map type
      * @return {@link PaginationUnrefinedParam}
@@ -484,6 +501,7 @@ public class PaginationInterceptor implements Interceptor {
      * Returns {@link Integer} value by invoking method.
      * And try to convert to {@link Integer} value
      * if it is a {@link String} value.
+     *
      * @param o      target
      * @param method {@link Method}
      * @return {@link Integer} value
@@ -495,6 +513,7 @@ public class PaginationInterceptor implements Interceptor {
 
     /**
      * Returns {@link String} value by invoking method.
+     *
      * @param o      target
      * @param method {@link Method}
      * @return {@link String} value
@@ -512,6 +531,7 @@ public class PaginationInterceptor implements Interceptor {
 
     /**
      * Invokes method.
+     *
      * @param o      target
      * @param method {@link Method}
      * @return {@link Boolean} value
@@ -530,6 +550,7 @@ public class PaginationInterceptor implements Interceptor {
     /**
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
+     *
      * @param map It may be an object of {@link org.apache.ibatis.binding.MapperMethod.ParamMap}
      * @param key The key whose associated value is to be returned
      * @return The value to which the specified key is mapped

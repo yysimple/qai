@@ -210,6 +210,9 @@ public final class PaginationSettings {
         this.maxSize = maxSize;
     }
 
+    /**
+     * 当以配置传进来的时候，这里会对 方言进行赋值初始化
+     */
     public void initialize() {
         if (this.dialect == null && this.sqlDialect == null) {
             throw new NullPointerException("Dialect is not configured.");
@@ -225,6 +228,9 @@ public final class PaginationSettings {
         return new Builder();
     }
 
+    /**
+     * 使用建造者模式进行赋值
+     */
     public static class Builder {
         private final PaginationSettings settings = new PaginationSettings();
 

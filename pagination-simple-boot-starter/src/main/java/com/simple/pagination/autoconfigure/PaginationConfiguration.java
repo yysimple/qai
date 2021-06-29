@@ -1,8 +1,10 @@
 package com.simple.pagination.autoconfigure;
 
 import com.simple.pagination.dialect.Dialect;
+import com.simple.pagination.dialect.SqlDialect;
 import com.simple.pagination.interceptor.PaginationInterceptor;
 import com.simple.pagination.interceptor.PaginationSettings;
+import com.simple.pagination.util.SqlUtils;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -25,14 +28,19 @@ import java.util.List;
 @Configuration("simplePaginationConfiguration")
 @ConditionalOnBean(SqlSessionFactory.class)
 @ConditionalOnProperty(value = "simple.pagination.enabled", matchIfMissing = true)
-@EnableConfigurationProperties(PaginationProperties.class)
+@EnableConfigurationProperties({PaginationProperties.class, DataSourceProperties.class})
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
 public class PaginationConfiguration {
     @Bean("simplePaginationInterceptor")
     @ConditionalOnMissingBean(PaginationInterceptor.class)
-    public PaginationInterceptor paginationInterceptor(PaginationProperties properties, @Autowired(required = false) Dialect dialect) {
+    public PaginationInterceptor paginationInterceptor(PaginationProperties properties, DataSourceProperties dataSourceProperties, @Autowired(required = false) Dialect dialect) {
+        // 获取数据源
         if (properties.getSqlDialect() == null && dialect == null) {
-            throw new IllegalArgumentException("SqlDialect is required.");
+            SqlDialect sqlDialect = SqlUtils.parseDataSourceUrl(dataSourceProperties.getUrl());
+            if (sqlDialect == null) {
+                throw new IllegalArgumentException("SqlDialect is required.");
+            }
+            dialect = sqlDialect.newDialect();
         }
         PaginationSettings settings = PaginationSettings.builder()
                 .dialect(dialect)

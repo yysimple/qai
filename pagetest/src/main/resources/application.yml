@@ -13,14 +13,14 @@ server:
   port: 8888
 
 
-simple:
-  pagination:
-    enabled: true
-    sqlDialect: MySQL
-    default-page: 1
-    default-size: 5
-    page-field: pageIndex
-    size-field: pageSize
+#simple:
+#  pagination:
+#    enabled: true
+#    sqlDialect: MySQL
+#    default-page: 1
+#    default-size: 5
+#    page-field: pageIndex
+#    size-field: pageSize
 
 mybatis-plus:
   type-aliases-package: com.simple.page

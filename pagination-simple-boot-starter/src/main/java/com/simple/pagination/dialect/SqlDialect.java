@@ -46,9 +46,14 @@ public enum SqlDialect {
         return dialectClass;
     }
 
+    /**
+     * 只要是 Dialect 的子类（mysql方言等）传进来，实例化出一个方言类并赋值
+     *
+     * @return
+     */
     public Dialect newDialect() {
         try {
-            // Uses the constructor represented by the Constructor object to initialize a new instance
+            // 获取到传入方言的构造器，并返回
             AbstractDialect dialect = dialectClass.getConstructor().newInstance();
             dialect.setSqlDialect(this);
             return dialect;
@@ -59,6 +64,9 @@ public enum SqlDialect {
 
     private static final Map<String, SqlDialect> map;
 
+    /**
+     * 将枚举中所有的方言初始化到map中，以name忽略大小写为key
+     */
     static {
         Map<String, SqlDialect> store = new HashMap<>(32);
         for (SqlDialect e : values()) {
@@ -72,6 +80,12 @@ public enum SqlDialect {
         map = Collections.unmodifiableMap(store);
     }
 
+    /**
+     * 根据传进来的值取出对应的 dialect
+     *
+     * @param name
+     * @return
+     */
     public static SqlDialect get(String name) {
         if (name == null) {
             return null;
