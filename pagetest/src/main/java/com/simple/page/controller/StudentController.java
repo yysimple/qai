@@ -5,6 +5,8 @@ import com.simple.page.ibo.StudentIbo;
 import com.simple.page.service.StudentService;
 import com.simple.page.util.SimpleResponse;
 import com.simple.pagination.util.Page;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,16 +18,19 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/student")
+@Api(tags = "学生接口")
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
 
+    @ApiOperation(value = "保存操作")
     @PostMapping("/save")
     public SimpleResponse<Boolean> save(@RequestBody Student student) {
         return new SimpleResponse<>(studentService.save(student));
     }
 
+    @ApiOperation("分页查询")
     @PostMapping("/list")
     public SimpleResponse<Page<Student>> listStudent(@RequestBody StudentIbo studentIbo) {
         Page<Student> studentPage = studentService.listStudent(studentIbo);
@@ -36,5 +41,25 @@ public class StudentController {
     public SimpleResponse<String> hello() {
         return new SimpleResponse<>("test");
     }
+
+    @ApiOperation("更新操作")
+    @PostMapping("/update")
+    public SimpleResponse<Boolean> update(@RequestBody Student student) {
+        return new SimpleResponse<>(studentService.updateById(student));
+    }
+
+    @ApiOperation("通过id获取学生信息")
+    @GetMapping("/getStudentById")
+    public SimpleResponse<Student> getStudentById(Long studentId) {
+        return new SimpleResponse<>(studentService.getById(studentId));
+    }
+
+    @ApiOperation("获取学生信息，id放在 / 后面")
+    @GetMapping("/getStudentByPathId/{id}")
+    public SimpleResponse<Student> getStudentByPathId(@PathVariable("id") Long studentId) {
+        return new SimpleResponse<>(studentService.getById(studentId));
+    }
+
+
 
 }
