@@ -5,6 +5,8 @@ package com.simple.designpatterns.pattern23.behavioral.memento;
  * <p>
  * 功能描述: 备忘录模式
  *
+ * 备忘录模式，其实就是将历史版本存放起来，便于之后去取出来进行回滚，其实数据库里面取最后一次操作日志是同一个道理，想拉链表也是如此设计，记录很多版本
+ *
  * @author: WuChengXing
  * @create: 2021-07-03 10:49
  **/
