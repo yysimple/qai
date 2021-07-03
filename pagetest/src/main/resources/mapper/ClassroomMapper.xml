@@ -6,8 +6,8 @@
 
     <resultMap id="BaseResultMap" type="com.simple.page.domain.Classroom">
             <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="classroomName" column="classroom_name" jdbcType="VARCHAR"/>
-            <result property="classroomDescribe" column="desc" jdbcType="VARCHAR"/>
+            <orderResult property="classroomName" column="classroom_name" jdbcType="VARCHAR"/>
+            <orderResult property="classroomDescribe" column="desc" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">

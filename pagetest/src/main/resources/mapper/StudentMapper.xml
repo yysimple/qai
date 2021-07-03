@@ -5,10 +5,10 @@
 <mapper namespace="com.simple.page.mapper.StudentMapper">
     <resultMap id="BaseResultMap" type="com.simple.page.domain.Student">
         <id property="id" column="id" jdbcType="BIGINT"/>
-        <result property="studentName" column="student_name" jdbcType="VARCHAR"/>
-        <result property="age" column="age" jdbcType="INTEGER"/>
-        <result property="studentDescribe" column="desc" jdbcType="VARCHAR"/>
-        <result property="classroomId" column="classroom_id" jdbcType="BIGINT"/>
+        <orderResult property="studentName" column="student_name" jdbcType="VARCHAR"/>
+        <orderResult property="age" column="age" jdbcType="INTEGER"/>
+        <orderResult property="studentDescribe" column="desc" jdbcType="VARCHAR"/>
+        <orderResult property="classroomId" column="classroom_id" jdbcType="BIGINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
