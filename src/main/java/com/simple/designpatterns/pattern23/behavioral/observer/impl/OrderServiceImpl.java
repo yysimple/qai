@@ -1,6 +1,6 @@
 package com.simple.designpatterns.pattern23.behavioral.observer.impl;
 
-import com.simple.designpatterns.pattern23.behavioral.observer.OrderResult;
+import com.simple.designpatterns.pattern23.behavioral.observer.OrderResultBo;
 import com.simple.designpatterns.pattern23.behavioral.observer.OrderService;
 
 /**
@@ -13,11 +13,11 @@ import com.simple.designpatterns.pattern23.behavioral.observer.OrderService;
  **/
 public class OrderServiceImpl extends OrderService {
     @Override
-    protected OrderResult initOrder(Long userId) {
+    protected OrderResultBo initOrder(Long userId) {
         if (userId > 1000) {
 
-            return new OrderResult("下单成功", 200, 21211313513L, userId);
+            return new OrderResultBo("下单成功", 200, 21211313513L, userId);
         }
-        return new OrderResult("下单失败", 100, 0L, userId);
+        return new OrderResultBo("下单失败", 100, 0L, userId);
     }
 }

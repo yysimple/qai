@@ -27,15 +27,13 @@ public abstract class OrderService {
     /**
      * 这里发通知，具体逻辑由子类去实现，子类无需关注消息的推送
      * @param userId
-     * @return
      */
-    public OrderResult createOrder(Long userId) {
-        OrderResult orderResult = initOrder(userId);
-        // 通知
-        listenerManager.notify(EventType.MESSAGE, orderResult);
-        listenerManager.notify(EventType.MQ, orderResult);
-        return orderResult;
+    public void createOrder(Long userId) {
+        OrderResultBo orderResultBo = initOrder(userId);
+        // 通知，这里可以指定通知哪个消息类型
+        listenerManager.notify(EventType.MESSAGE, orderResultBo);
+        listenerManager.notify(EventType.MQ, orderResultBo);
     }
 
-    protected abstract OrderResult initOrder(Long userId);
+    protected abstract OrderResultBo initOrder(Long userId);
 }

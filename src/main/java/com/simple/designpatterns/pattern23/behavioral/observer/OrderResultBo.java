@@ -2,7 +2,6 @@ package com.simple.designpatterns.pattern23.behavioral.observer;
 
 import lombok.Data;
 
-import java.util.Objects;
 
 /**
  * 项目: question-study-improve
@@ -13,7 +12,7 @@ import java.util.Objects;
  * @create: 2021-07-03 11:46
  **/
 @Data
-public class OrderResult {
+public class OrderResultBo {
     private String msg;
 
     private Integer code;
@@ -22,13 +21,13 @@ public class OrderResult {
 
     private Long userId;
 
-    public OrderResult(String msg, Integer code, Long orderId, Long userId) {
+    public OrderResultBo(String msg, Integer code, Long orderId, Long userId) {
         this.msg = msg;
         this.code = code;
         this.orderId = orderId;
         this.userId = userId;
     }
 
-    public OrderResult() {
+    public OrderResultBo() {
     }
 }

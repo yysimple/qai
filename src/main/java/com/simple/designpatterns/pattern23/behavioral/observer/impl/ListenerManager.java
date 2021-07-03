@@ -1,10 +1,9 @@
 package com.simple.designpatterns.pattern23.behavioral.observer.impl;
 
 import com.simple.designpatterns.pattern23.behavioral.observer.EventListener;
-import com.simple.designpatterns.pattern23.behavioral.observer.OrderResult;
+import com.simple.designpatterns.pattern23.behavioral.observer.OrderResultBo;
 import com.simple.designpatterns.pattern23.behavioral.observer.enums.EventType;
 import lombok.extern.slf4j.Slf4j;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +20,9 @@ import java.util.Map;
  **/
 @Slf4j
 public class ListenerManager {
+    /**
+     * 存放枚举里面的订阅者，以订阅者类型为key
+     */
     Map<Enum<EventType>, List<EventListener>> listeners = new HashMap<>(16);
 
     @SafeVarargs
@@ -30,6 +32,11 @@ public class ListenerManager {
         }
     }
 
+    /**
+     * 订阅，MQ == new Mqxxx()
+     * @param typeEnum
+     * @param eventListener
+     */
     public void subscribe(Enum<EventType> typeEnum, EventListener eventListener) {
         List<EventListener> eventListeners = listeners.get(typeEnum);
         eventListeners.add(eventListener);
@@ -40,10 +47,16 @@ public class ListenerManager {
         eventListeners.remove(eventListener);
     }
 
-    public void notify(Enum<EventType> typeEnum, OrderResult orderResult) {
+    /**
+     * 通知已经订阅的成员
+     * @param typeEnum
+     * @param orderResultBo
+     */
+    public void notify(Enum<EventType> typeEnum, OrderResultBo orderResultBo) {
+        // 这里可以拿到对应的发送消息的类型
         List<EventListener> eventListeners = listeners.get(typeEnum);
         for (EventListener listener : eventListeners) {
-            listener.doEvent(orderResult);
+            listener.doEvent(orderResultBo);
         }
     }
 
