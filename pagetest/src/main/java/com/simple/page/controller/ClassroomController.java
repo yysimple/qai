@@ -14,6 +14,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/classroom")
+@CrossOrigin
 public class ClassroomController {
     @Autowired
     private ClassroomService classroomService;
