@@ -10,9 +10,9 @@ package com.simple.designpatterns.pattern23.structuretype.adapter;
  **/
 public class AdapterTest {
     public static void main(String[] args) {
-        AudioPlayer audioPlayer = new AudioPlayer();
-        audioPlayer.play("mp3", "test.mp3");
-        audioPlayer.play("mp4", "test.mp4");
-        audioPlayer.play("vlc", "test.vlc");
+        Mp3AudioPlayer mp3AudioPlayer = new Mp3AudioPlayer();
+        mp3AudioPlayer.play("mp3", "test.mp3");
+        mp3AudioPlayer.play("mp4", "test.mp4");
+        mp3AudioPlayer.play("avi", "test.avi");
     }
 }

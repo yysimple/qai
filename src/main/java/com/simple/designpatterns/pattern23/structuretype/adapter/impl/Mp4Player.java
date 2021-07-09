@@ -12,7 +12,7 @@ import com.simple.designpatterns.pattern23.structuretype.adapter.AdvancedMediaPl
  **/
 public class Mp4Player implements AdvancedMediaPlayer {
     @Override
-    public void playVlc(String fileName) {
+    public void playAvi(String fileName) {
 
     }
 

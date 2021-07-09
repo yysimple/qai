@@ -9,7 +9,7 @@ package com.simple.designpatterns.pattern23.structuretype.adapter;
  * @create: 2021-06-20 12:54
  **/
 public interface AdvancedMediaPlayer {
-    void playVlc(String fileName);
+    void playAvi(String fileName);
 
     void playMp4(String fileName);
 }

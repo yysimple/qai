@@ -10,10 +10,10 @@ import com.simple.designpatterns.pattern23.structuretype.adapter.AdvancedMediaPl
  * @author: WuChengXing
  * @create: 2021-06-20 12:55
  **/
-public class VlcPlayer implements AdvancedMediaPlayer {
+public class AviPlayer implements AdvancedMediaPlayer {
     @Override
-    public void playVlc(String fileName) {
-        System.out.println("Playing vlc file. Name: "+ fileName);
+    public void playAvi(String fileName) {
+        System.out.println("Playing avi file. Name: "+ fileName);
     }
 
     @Override

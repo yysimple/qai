@@ -8,7 +8,7 @@ package com.simple.designpatterns.pattern23.structuretype.adapter;
  * @author: WuChengXing
  * @create: 2021-06-20 13:00
  **/
-public class AudioPlayer implements MediaPlayer {
+public class Mp3AudioPlayer implements MediaPlayer {
 
     private MediaAdapter mediaAdapter;
 
@@ -19,7 +19,7 @@ public class AudioPlayer implements MediaPlayer {
             System.out.println("Playing mp3 file. Name: "+ fileName);
         }
         //mediaAdapter 提供了播放其他文件格式的支持
-        else if(audioType.equalsIgnoreCase("vlc")
+        else if(audioType.equalsIgnoreCase("avi")
                 || audioType.equalsIgnoreCase("mp4")){
             mediaAdapter = new MediaAdapter(audioType);
             mediaAdapter.play(audioType, fileName);
