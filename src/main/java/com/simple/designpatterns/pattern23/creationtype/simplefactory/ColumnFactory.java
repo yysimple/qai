@@ -1,6 +1,6 @@
 package com.simple.designpatterns.pattern23.creationtype.simplefactory;
 
-import com.simple.designpatterns.pattern23.creationtype.simplefactory.impl.TeeColumn;
+import com.simple.designpatterns.pattern23.creationtype.simplefactory.impl.TeaColumn;
 import com.simple.designpatterns.pattern23.creationtype.simplefactory.impl.WaterColumn;
 
 /**
@@ -17,10 +17,10 @@ public class ColumnFactory {
      */
     public static Column create(String type) {
         if ("tee".equals(type)) {
-            return new TeeColumn();
+            return new TeaColumn();
         } else if ("water".equals(type)) {
             return new WaterColumn();
         }
-        return new TeeColumn();
+        return new TeaColumn();
     }
 }
