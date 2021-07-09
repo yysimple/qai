@@ -9,7 +9,7 @@ import com.simple.designpatterns.pattern23.creationtype.abstractfactory.impl.Qmp
  * @author chengxing.wu@xiaobao100.com
  * @date 2021/6/15 17:58
  */
-public class MonitorFactory extends ComputerFactory {
+public class MonitorFactory extends CommonFactory {
 
     @Override
     public Monitor getMonitor(String type) {
@@ -20,11 +20,6 @@ public class MonitorFactory extends ComputerFactory {
             System.out.println("xxxxxxxx 准备生产IPS屏 xxxxxxxx");
             return new IpsMonitor();
         }
-        return null;
-    }
-
-    @Override
-    public HardDisk getHardDisk(String type) {
         return null;
     }
 }
