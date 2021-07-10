@@ -1,6 +1,7 @@
 package com.simple.designpatterns.pattern23.behavioral.state;
 
 import com.simple.designpatterns.pattern23.behavioral.state.impl.StartState;
+import com.simple.designpatterns.pattern23.behavioral.state.impl.StopState;
 
 /**
  * 项目: question-study-improve
@@ -15,7 +16,11 @@ public class StateTest {
     public static void main(String[] args) {
         Context context = new Context();
         StartState startState = new StartState();
+        StopState stopState = new StopState();
         startState.doSomeThing(context);
+        System.out.println(context.getState().toString());
+        System.out.println("----------------------------");
+        stopState.doSomeThing(context);
         System.out.println(context.getState().toString());
     }
 }
