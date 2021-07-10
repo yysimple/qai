@@ -1,5 +1,6 @@
 package com.simple.designpatterns.pattern23.behavioral.template.impl;
 
+import com.simple.designpatterns.pattern23.behavioral.template.CommonCuisine;
 import com.simple.designpatterns.pattern23.behavioral.template.Cuisine;
 
 /**
@@ -10,7 +11,7 @@ import com.simple.designpatterns.pattern23.behavioral.template.Cuisine;
  * @author: WuChengXing
  * @create: 2021-07-04 17:42
  **/
-public class Dabaicai extends Cuisine {
+public class Dabaicai extends CommonCuisine {
     @Override
     protected void cleaning() {
         System.out.println("=== 清洗一下大白菜 ===");
@@ -23,6 +24,6 @@ public class Dabaicai extends Cuisine {
 
     @Override
     protected void finish() {
-        System.out.println("=== 完成制作，上菜 ===");
+        System.out.println("=== 完成制作，上菜，简单的盘子装菜 ===");
     }
 }
