@@ -2,8 +2,8 @@ package com.simple.designpatterns.pattern23.behavioral.observer;
 
 import com.simple.designpatterns.pattern23.behavioral.observer.enums.EventType;
 import com.simple.designpatterns.pattern23.behavioral.observer.impl.ListenerManager;
-import com.simple.designpatterns.pattern23.behavioral.observer.impl.MQEventListener;
-import com.simple.designpatterns.pattern23.behavioral.observer.impl.MessageEventListener;
+import com.simple.designpatterns.pattern23.behavioral.observer.impl.MQEventHandler;
+import com.simple.designpatterns.pattern23.behavioral.observer.impl.MessageEventHandler;
 
 /**
  * 项目: question-study-improve
@@ -20,8 +20,8 @@ public abstract class OrderService {
         // 初始化需要通知的事件 MQ/Message
         listenerManager = new ListenerManager(EventType.MQ, EventType.MESSAGE);
         // 订阅
-        listenerManager.subscribe(EventType.MQ, new MQEventListener());
-        listenerManager.subscribe(EventType.MESSAGE, new MessageEventListener());
+        listenerManager.subscribe(EventType.MQ, new MQEventHandler());
+        listenerManager.subscribe(EventType.MESSAGE, new MessageEventHandler());
     }
 
     /**

@@ -1,6 +1,6 @@
 package com.simple.designpatterns.pattern23.behavioral.observer.impl;
 
-import com.simple.designpatterns.pattern23.behavioral.observer.EventListener;
+import com.simple.designpatterns.pattern23.behavioral.observer.EventHandler;
 import com.simple.designpatterns.pattern23.behavioral.observer.OrderResultBo;
 import com.simple.designpatterns.pattern23.behavioral.observer.enums.EventType;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ public class ListenerManager {
     /**
      * 存放枚举里面的订阅者，以订阅者类型为key
      */
-    Map<Enum<EventType>, List<EventListener>> listeners = new HashMap<>(16);
+    Map<Enum<EventType>, List<EventHandler>> listeners = new HashMap<>(16);
 
     @SafeVarargs
     public ListenerManager(Enum<EventType>... types) {
@@ -35,16 +35,16 @@ public class ListenerManager {
     /**
      * 订阅，MQ == new Mqxxx()
      * @param typeEnum
-     * @param eventListener
+     * @param eventHandler
      */
-    public void subscribe(Enum<EventType> typeEnum, EventListener eventListener) {
-        List<EventListener> eventListeners = listeners.get(typeEnum);
-        eventListeners.add(eventListener);
+    public void subscribe(Enum<EventType> typeEnum, EventHandler eventHandler) {
+        List<EventHandler> eventHandlers = listeners.get(typeEnum);
+        eventHandlers.add(eventHandler);
     }
 
-    public void unsubscribe(Enum<EventType> typeEnum, EventListener eventListener) {
-        List<EventListener> eventListeners = listeners.get(typeEnum);
-        eventListeners.remove(eventListener);
+    public void unsubscribe(Enum<EventType> typeEnum, EventHandler eventHandler) {
+        List<EventHandler> eventHandlers = listeners.get(typeEnum);
+        eventHandlers.remove(eventHandler);
     }
 
     /**
@@ -54,8 +54,8 @@ public class ListenerManager {
      */
     public void notify(Enum<EventType> typeEnum, OrderResultBo orderResultBo) {
         // 这里可以拿到对应的发送消息的类型
-        List<EventListener> eventListeners = listeners.get(typeEnum);
-        for (EventListener listener : eventListeners) {
+        List<EventHandler> eventHandlers = listeners.get(typeEnum);
+        for (EventHandler listener : eventHandlers) {
             listener.doEvent(orderResultBo);
         }
     }
