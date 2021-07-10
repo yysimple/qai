@@ -1,5 +1,8 @@
 package com.simple.designpatterns.pattern23.behavioral.memento;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 项目: question-study-improve
  * <p>
@@ -13,9 +16,23 @@ public class Memento {
 
     private Integer version;
 
+
+    public Memento() {
+    }
+
     public Memento(String operation, Integer version) {
         this.operation = operation;
         this.version = version;
+    }
+
+    private List<Memento> mementoList = new ArrayList<>();
+
+    public void add(Memento state) {
+        mementoList.add(state);
+    }
+
+    public Memento get(int index) {
+        return mementoList.get(index);
     }
 
     public String getOperation() {
