@@ -2,7 +2,7 @@ package com.simple.designpatterns.pattern23.behavioral.responsibilitychain;
 
 import com.simple.designpatterns.pattern23.behavioral.responsibilitychain.impl.ConsoleLogger;
 import com.simple.designpatterns.pattern23.behavioral.responsibilitychain.impl.ErrorLogger;
-import com.simple.designpatterns.pattern23.behavioral.responsibilitychain.impl.FileLogger;
+import com.simple.designpatterns.pattern23.behavioral.responsibilitychain.impl.DebugLogger;
 
 /**
  * 项目: question-study-improve
@@ -16,7 +16,7 @@ public class ResponsibilityChainTest {
     private static AbstractLogger getChainOfLoggers() {
 
         AbstractLogger errorLogger = new ErrorLogger(AbstractLogger.ERROR);
-        AbstractLogger fileLogger = new FileLogger(AbstractLogger.DEBUG);
+        AbstractLogger fileLogger = new DebugLogger(AbstractLogger.DEBUG);
         AbstractLogger consoleLogger = new ConsoleLogger(AbstractLogger.INFO);
 
         errorLogger.setNextLogger(fileLogger);
@@ -29,10 +29,11 @@ public class ResponsibilityChainTest {
         AbstractLogger loggerChain = getChainOfLoggers();
 
         loggerChain.logMessage(AbstractLogger.INFO, "This is an information.");
+        System.out.println("---------------------");
 
         loggerChain.logMessage(AbstractLogger.DEBUG,
                 "This is a debug level information.");
-
+        System.out.println("---------------------");
         loggerChain.logMessage(AbstractLogger.ERROR,
                 "This is an error information.");
     }

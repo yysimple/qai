@@ -3,7 +3,7 @@ package com.simple.designpatterns.pattern23.behavioral.responsibilitychain;
 /**
  * 项目: question-study-improve
  * <p>
- * 功能描述:
+ * 功能描述: 这个是责任链
  *
  * @author: WuChengXing
  * @create: 2021-06-28 00:09

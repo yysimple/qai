@@ -10,8 +10,8 @@ import com.simple.designpatterns.pattern23.behavioral.responsibilitychain.Abstra
  * @author: WuChengXing
  * @create: 2021-06-28 00:15
  **/
-public class FileLogger extends AbstractLogger {
-    public FileLogger(int level){
+public class DebugLogger extends AbstractLogger {
+    public DebugLogger(int level){
         this.level = level;
     }
 
