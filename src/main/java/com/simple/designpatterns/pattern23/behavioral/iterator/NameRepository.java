@@ -21,6 +21,10 @@ public class NameRepository implements Iterable {
 
         int index;
 
+        /**
+         * 根据数组长度校验是否还有下一个元素
+         * @return
+         */
         @Override
         public boolean hasNext() {
             if (index < names.length) {
@@ -32,6 +36,9 @@ public class NameRepository implements Iterable {
         @Override
         public Object next() {
             if (this.hasNext()) {
+                /**
+                 * 这里index++ 知道没有下一个元素这里就不执行了
+                 */
                 return names[index++];
             }
             return null;

@@ -9,5 +9,9 @@ package com.simple.designpatterns.pattern23.behavioral.iterator;
  * @create: 2021-06-28 23:39
  **/
 public interface Iterable {
+    /**
+     * 获取迭代器
+     * @return
+     */
     Iterator getIterator();
 }
