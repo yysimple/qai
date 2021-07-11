@@ -12,7 +12,10 @@ public class SimpleFactoryTest {
          */
         Column tee = ColumnFactory.create("tee");
         tee.storeLiquid();
+        System.out.println("给我们辛苦的程序员来杯卡布奇洛茶...");
+        System.out.println("-----------------");
         Column water = ColumnFactory.create("water");
         water.storeLiquid();
+        System.out.println("来杯白开水...");
     }
 }
