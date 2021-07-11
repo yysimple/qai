@@ -24,10 +24,15 @@ public class LodTest {
          *
          * AGroup{
          *     total(){
-         *         return aEmployee + bEmployee
+         *         return 1000W;
          *     }
          * }
          *
+         * BGroup{
+         *     total(){
+         *         return 500W;
+         *     }
+         * }
          */
 
     }
