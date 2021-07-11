@@ -10,8 +10,8 @@ import com.simple.designpatterns.design6.ocp.impl.SpecialFinanceFee;
 public class OcpTest {
     public static void main(String[] args) {
         FeeService feeService = new SpecialFinanceFee();
-        System.out.println(feeService.getFinancialFee("2"));
+        System.out.println("特殊的金融费率(级别2的)： ===> " + feeService.getFinancialFee("2"));
         FeeService feeService1 = new FeeServiceImpl();
-        System.out.println(feeService1.getFinancialFee("2"));
+        System.out.println("普通的金融费率(级别2的)： ===> " + feeService1.getFinancialFee("2"));
     }
 }
