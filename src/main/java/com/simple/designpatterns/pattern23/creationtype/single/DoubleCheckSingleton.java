@@ -10,25 +10,17 @@ package com.simple.designpatterns.pattern23.creationtype.single;
  **/
 public class DoubleCheckSingleton {
 
-    public String name;
+    private volatile static DoubleCheckSingleton doubleCheckSingleton;
 
-    /*public DoubleCheckSingleton(String name) {
-        this.name = name;
-    }*/
-
-    private static DoubleCheckSingleton doubleCheckSingleton;
-
-    private DoubleCheckSingleton(String name) {
-        this.name = name;
+    private DoubleCheckSingleton() {
     }
 
-    public static DoubleCheckSingleton getInstance(String name) {
-        if (doubleCheckSingleton != null) {
-            return doubleCheckSingleton;
-        }
-        synchronized (DoubleCheckSingleton.class) {
-            if (doubleCheckSingleton == null) {
-                return new DoubleCheckSingleton(name);
+    public static DoubleCheckSingleton getInstance() {
+        if (doubleCheckSingleton == null) {
+            synchronized (DoubleCheckSingleton.class) {
+                if (doubleCheckSingleton == null) {
+                    doubleCheckSingleton = new DoubleCheckSingleton();
+                }
             }
         }
         return doubleCheckSingleton;
