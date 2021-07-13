@@ -17,10 +17,13 @@ public class BridgingTest {
     public static void main(String[] args) {
         Cuisine boiledRiceFlour = new RiceFlour(new Boiled());
         boiledRiceFlour.finishedProduct();
+        System.out.println("-----------------------------");
         Cuisine stirFryRiceFlour = new RiceFlour(new StirFry());
         stirFryRiceFlour.finishedProduct();
+        System.out.println("-----------------------------");
         Cuisine boiledPasta = new Pasta(new Boiled());
         boiledPasta.finishedProduct();
+        System.out.println("-----------------------------");
         Cuisine riceFlourStirFry = new RiceFlour(new StirFry());
         riceFlourStirFry.finishedProduct();
 
