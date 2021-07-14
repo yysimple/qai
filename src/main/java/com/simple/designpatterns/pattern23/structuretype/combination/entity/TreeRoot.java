@@ -12,10 +12,19 @@ import lombok.Data;
  **/
 @Data
 public class TreeRoot {
+    /**
+     * 该决策书的id
+     */
     private Long treeId;
 
+    /**
+     * 该决策树的根节点，也是第一个规则节点的id
+     */
     private Long treeRootNodeId;
 
+    /**
+     * 树的名称
+     */
     private String treeName;
 
     private TreeRoot treeRoot;

@@ -30,11 +30,13 @@ public abstract class BaseEngine extends EngineConfig implements IEngine {
         TreeNode treeNode = treeNodeMap.get(treeRootNodeId);
         // treeNodeType: 1=叶子节点，2=果实
         while (treeNode.getTreeNodeType() == 1) {
-            String ruleKey = treeNode.getRuleKey(); // 拿到对应的规则节点对应的key
+            // 拿到对应的规则节点对应的key
+            String ruleKey = treeNode.getRuleKey();
             // 拿到过滤规则
             LogicFilter logicFilter = logicFilterMap.get(ruleKey);
-            String matterValue = logicFilter.matterValue(treeId, userId, decisionMatter); //
-            //
+            // 拿到map对应的需要进行比较的值，即客户端传过来的值
+            String matterValue = logicFilter.matterValue(treeId, userId, decisionMatter);
+            // 这里去通过“树枝”，过了校验就获取下一个规则
             Long nextNodeId = logicFilter.filter(matterValue, treeNode.getTreeNodeLinks());
             treeNode = treeNodeMap.get(nextNodeId);
             log.info("决策树引擎：===> 返回值：ruleKey: {}, matterValue: {}, nextNodeId: {}", ruleKey, matterValue, nextNodeId);

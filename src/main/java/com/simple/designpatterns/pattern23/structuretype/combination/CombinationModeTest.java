@@ -28,8 +28,8 @@ public class CombinationModeTest {
         IEngine engine = new EngineHandler();
         Map<String, String> decisionMap = new HashMap<>(2);
         // 具体的参数，用于去跟已经配置好了的规则节点去对比
-        decisionMap.put("gender", "man");
-        decisionMap.put("age", "29");
+        decisionMap.put("gender", "woman");
+        decisionMap.put("age", "24");
         EngineResult result = engine.process(10001L, "sasassa", init, decisionMap);
         log.info("result ==> {}", JSON.toJSON(result));
     }

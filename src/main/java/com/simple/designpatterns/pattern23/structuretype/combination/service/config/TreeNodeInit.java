@@ -114,30 +114,33 @@ public class TreeNodeInit {
         treeNodeLinks_12.add(treeNodeLink_122);
         treeNode_12.setTreeNodeLinks(treeNodeLinks_12);
 
-        // ------------------------------------------
+        /**
+         * 结果
+         */
+
         TreeNode treeNode_111 = TreeNode.builder()
                 .treeId(10001L)
                 .treeNodeId(111L)
                 .treeNodeType(Constant.NODE_TYPE_FRUIT)
-                .treeNodeValue("果实A")
+                .treeNodeValue("果实A ===> 男，<25")
                 .build();
         TreeNode treeNode_112 = TreeNode.builder()
                 .treeId(10001L)
                 .treeNodeId(112L)
                 .treeNodeType(Constant.NODE_TYPE_FRUIT)
-                .treeNodeValue("果实B")
+                .treeNodeValue("果实B ===> 男，>=25")
                 .build();
         TreeNode treeNode_121 = TreeNode.builder()
                 .treeId(10001L)
                 .treeNodeId(121L)
                 .treeNodeType(Constant.NODE_TYPE_FRUIT)
-                .treeNodeValue("果实C")
+                .treeNodeValue("果实C ===> 女，<25")
                 .build();
         TreeNode treeNode_122 = TreeNode.builder()
                 .treeId(10001L)
                 .treeNodeId(122L)
                 .treeNodeType(Constant.NODE_TYPE_FRUIT)
-                .treeNodeValue("果实D")
+                .treeNodeValue("果实D ===> 女，>=25")
                 .build();
 
         //--------- 树根 ----------------
