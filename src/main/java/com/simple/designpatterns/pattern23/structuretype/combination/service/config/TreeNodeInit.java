@@ -143,6 +143,7 @@ public class TreeNodeInit {
         //--------- 树根 ----------------
         TreeRoot treeRoot = new TreeRoot();
         treeRoot.setTreeId(10001L);
+        // 这里是记录这整个决策树的第一个规则节点是什么
         treeRoot.setTreeRootNodeId(1L);
         treeRoot.setTreeName("决策树");
         Map<Long, TreeNode> treeNodeMap = new HashMap<>(16);

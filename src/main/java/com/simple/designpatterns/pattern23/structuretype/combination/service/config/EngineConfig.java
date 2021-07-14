@@ -20,6 +20,9 @@ import java.util.Map;
 public class EngineConfig {
     protected static Map<String, LogicFilter> logicFilterMap;
 
+    /**
+     * 初始化过滤器
+     */
     static {
         logicFilterMap = new HashMap<>(4);
         logicFilterMap.put("userAge", new UserAgeFilter());

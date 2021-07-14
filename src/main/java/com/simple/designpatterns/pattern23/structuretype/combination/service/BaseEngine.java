@@ -30,10 +30,10 @@ public abstract class BaseEngine extends EngineConfig implements IEngine {
         TreeNode treeNode = treeNodeMap.get(treeRootNodeId);
         // treeNodeType: 1=叶子节点，2=果实
         while (treeNode.getTreeNodeType() == 1) {
-            String ruleKey = treeNode.getRuleKey();
+            String ruleKey = treeNode.getRuleKey(); // 拿到对应的规则节点对应的key
             // 拿到过滤规则
             LogicFilter logicFilter = logicFilterMap.get(ruleKey);
-            String matterValue = logicFilter.matterValue(treeId, userId, decisionMatter);
+            String matterValue = logicFilter.matterValue(treeId, userId, decisionMatter); //
             //
             Long nextNodeId = logicFilter.filter(matterValue, treeNode.getTreeNodeLinks());
             treeNode = treeNodeMap.get(nextNodeId);

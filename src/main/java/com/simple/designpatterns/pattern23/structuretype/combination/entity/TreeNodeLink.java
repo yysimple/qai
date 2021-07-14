@@ -18,11 +18,23 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class TreeNodeLink {
+    /**
+     * 上一个节点的id
+     */
     private Long nodeIdFrom;
 
+    /**
+     * 下一个节点id
+     */
     private Long nodeIdTo;
 
+    /**
+     * 这个是过滤的类型；这个是枚举，查看 == ExpressionEnum
+     */
     private Integer ruleLimitType;
 
+    /**
+     * 这个是具体的值：比如 man、women、19、52等之类的限定值
+     */
     private String ruleLimitValue;
 }
