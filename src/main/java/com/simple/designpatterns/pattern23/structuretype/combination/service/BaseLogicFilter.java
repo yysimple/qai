@@ -21,7 +21,7 @@ public abstract class BaseLogicFilter implements LogicFilter {
     @Override
     public Long filter(String matterValue, List<TreeNodeLink> treeNodeLinks) {
         for (TreeNodeLink treeNodeLink : treeNodeLinks) {
-            // 匹配上了这些规则，继续往下走
+            // 匹配上了这些规则，继续往下走（这里是“树枝”，里面有界限值和指向）
             if (decisionLogic(matterValue, treeNodeLink)) {
                 return treeNodeLink.getNodeIdTo();
             }
@@ -31,6 +31,12 @@ public abstract class BaseLogicFilter implements LogicFilter {
 
     public abstract String matterValue(Long treeId, String userId, Map<String, String> decisionMatter);
 
+    /**
+     * 校验传入的
+     * @param matterValue
+     * @param treeNodeLink
+     * @return
+     */
     public Boolean decisionLogic(String matterValue, TreeNodeLink treeNodeLink) {
         switch (Objects.requireNonNull(ExpressionEnum.getByIndex(treeNodeLink.getRuleLimitType()))) {
             case EQUAL:
