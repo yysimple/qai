@@ -1,6 +1,6 @@
-package com.simple.designpatterns.pattern23.structuretype.decorator.impl;
+package com.simple.designpatterns.pattern23.structuretype.decorator.one.impl;
 
-import com.simple.designpatterns.pattern23.structuretype.decorator.HandlerInterceptor;
+import com.simple.designpatterns.pattern23.structuretype.decorator.one.HandlerInterceptor;
 
 /**
  * 项目: question-study-improve

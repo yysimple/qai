@@ -1,7 +1,7 @@
-package com.simple.designpatterns.pattern23.structuretype.decorator;
+package com.simple.designpatterns.pattern23.structuretype.decorator.one;
 
-import com.simple.designpatterns.pattern23.structuretype.decorator.impl.LoginSsoDecorator;
-import com.simple.designpatterns.pattern23.structuretype.decorator.impl.SsoInterceptor;
+import com.simple.designpatterns.pattern23.structuretype.decorator.one.impl.LoginSsoDecorator;
+import com.simple.designpatterns.pattern23.structuretype.decorator.one.impl.SsoInterceptor;
 
 /**
  * 项目: question-study-improve

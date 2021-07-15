@@ -16,10 +16,12 @@ public class DecoratorTest {
         // 最原始的机车
         Car locomotive = new Locomotive();
         // 装上了音乐的机车
-        Car speakerDecorator = new SpeakerDecorator(locomotive);
+        SpeakerDecorator speakerDecorator = new SpeakerDecorator(locomotive);
         System.out.println("----- 最原始的机车 -----");
         locomotive.drive();
         System.out.println("----- 装上了音乐的机车 -----");
         speakerDecorator.drive();
+        System.out.println("----- 单纯想听点音乐 -----");
+        speakerDecorator.play();
     }
 }

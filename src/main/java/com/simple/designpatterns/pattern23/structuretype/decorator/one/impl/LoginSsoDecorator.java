@@ -1,7 +1,7 @@
-package com.simple.designpatterns.pattern23.structuretype.decorator.impl;
+package com.simple.designpatterns.pattern23.structuretype.decorator.one.impl;
 
-import com.simple.designpatterns.pattern23.structuretype.decorator.HandlerInterceptor;
-import com.simple.designpatterns.pattern23.structuretype.decorator.SsoInterceptorDecorator;
+import com.simple.designpatterns.pattern23.structuretype.decorator.one.HandlerInterceptor;
+import com.simple.designpatterns.pattern23.structuretype.decorator.one.SsoInterceptorDecorator;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;

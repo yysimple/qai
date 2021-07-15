@@ -1,4 +1,4 @@
-package com.simple.designpatterns.pattern23.structuretype.decorator;
+package com.simple.designpatterns.pattern23.structuretype.decorator.one;
 
 /**
  * 项目: question-study-improve
