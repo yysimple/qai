@@ -1,4 +1,4 @@
-package com.simple.designpatterns.pattern23.structuretype.proxy.annotation;
+package com.simple.designpatterns.pattern23.structuretype.proxy.one.annotation;
 
 import java.lang.annotation.*;
 

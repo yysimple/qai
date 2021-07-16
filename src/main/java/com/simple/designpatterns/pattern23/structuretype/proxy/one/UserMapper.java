@@ -1,8 +1,6 @@
-package com.simple.designpatterns.pattern23.structuretype.proxy;
+package com.simple.designpatterns.pattern23.structuretype.proxy.one;
 
-import com.simple.designpatterns.pattern23.structuretype.proxy.annotation.Select;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
+import com.simple.designpatterns.pattern23.structuretype.proxy.one.annotation.Select;
 
 /**
  * 项目: question-study-improve

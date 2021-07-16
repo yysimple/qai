@@ -1,11 +1,10 @@
-package com.simple.designpatterns.pattern23.structuretype.proxy;
+package com.simple.designpatterns.pattern23.structuretype.proxy.one;
 
 import com.simple.util.BaseTest;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * 项目: question-study-improve

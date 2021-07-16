@@ -1,4 +1,4 @@
-package com.simple.designpatterns.pattern23.structuretype.proxy;
+package com.simple.designpatterns.pattern23.structuretype.proxy.one;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -8,9 +8,6 @@ import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
-import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * 项目: question-study-improve

@@ -1,4 +1,4 @@
-package com.simple.designpatterns.pattern23.structuretype.exterior;
+package com.simple.designpatterns.pattern23.structuretype.exterior.one;
 
 /**
  * 项目: question-study-improve

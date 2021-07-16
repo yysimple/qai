@@ -1,4 +1,4 @@
-package com.simple.designpatterns.pattern23.structuretype.proxy;
+package com.simple.designpatterns.pattern23.structuretype.proxy.one;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.FactoryBean;
