@@ -10,13 +10,13 @@ package com.simple.designpatterns.pattern23.behavioral.iterator;
  **/
 public interface Iterator {
     /**
-     * 校验是否有下一个袁4元素
+     * 校验是否有下一个元素
      * @return
      */
     boolean hasNext();
 
     /**
-     * 下一个元素
+     * 获取下一个元素
      * @return
      */
     Object next();

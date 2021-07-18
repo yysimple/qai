@@ -12,6 +12,10 @@ public class NameRepository implements Iterable {
 
     public String[] names = {"Robert", "John", "Julie", "Lora"};
 
+    /**
+     * 获取迭代器
+     * @return
+     */
     @Override
     public Iterator getIterator() {
         return new NameIterator();
