@@ -1,6 +1,5 @@
 package com.simple.designpatterns.pattern23.structuretype.proxy.two;
 
-import com.simple.designpatterns.pattern23.structuretype.proxy.two.impl.ProxyImage;
 import com.simple.designpatterns.pattern23.structuretype.proxy.two.impl.RealImage;
 
 /**
@@ -13,11 +12,11 @@ import com.simple.designpatterns.pattern23.structuretype.proxy.two.impl.RealImag
  **/
 public class ProxyTwoTest {
     public static void main(String[] args) {
-        ProxyImage proxyImage01 = new ProxyImage("f.img");
+        /*ProxyImage proxyImage01 = new ProxyImage("f.img");
         proxyImage01.display();
         System.out.println("---");
         ProxyImage proxyImage02 = new ProxyImage("f.img");
-        proxyImage02.display();
+        proxyImage02.display();*/
 
         System.out.println("-----------");
 
