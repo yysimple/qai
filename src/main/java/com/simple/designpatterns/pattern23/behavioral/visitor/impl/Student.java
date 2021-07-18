@@ -18,6 +18,10 @@ public class Student extends User {
         super(name, identity, clazz);
     }
 
+    /**
+     * 接受访问者的访问
+     * @param visitor
+     */
     @Override
     protected void accept(Visitor visitor) {
         visitor.visit(this);
