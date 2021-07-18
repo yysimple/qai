@@ -1,5 +1,8 @@
 package com.simple.designpatterns.pattern23.behavioral.interpreter;
 
+import com.simple.designpatterns.pattern23.behavioral.interpreter.impl.SelectExpression;
+import com.simple.designpatterns.pattern23.behavioral.interpreter.impl.UpdateExpression;
+
 /**
  * 项目: question-study-improve
  * <p>
@@ -10,19 +13,21 @@ package com.simple.designpatterns.pattern23.behavioral.interpreter;
  **/
 public class InterpreterTest {
     public static void main(String[] args) {
-        SQLExpression select = getSelect();
-        SQLExpression update = getUpdate();
+        SelectExpression select = getSelect();
+        UpdateExpression update = getUpdate();
         System.out.println("select * from student? this is a select sql? ==> " + select.interpret("select"));
         System.out.println("update student set name = 'zyy' where id = 1? this is a update sql? ==> " + update.interpret("update"));
     }
 
-    public static SQLExpression getSelect() {
+    public static SelectExpression getSelect() {
         // 设置解释器模板
-        return new SQLInterpreter("select");
+        SQLInterpreter select = new SQLInterpreter("select");
+        return new SelectExpression(select);
     }
 
-    public static SQLExpression getUpdate() {
+    public static UpdateExpression getUpdate() {
         // 设置解释器模板
-        return new SQLInterpreter("update");
+        SQLInterpreter update = new SQLInterpreter("update");
+        return new UpdateExpression(update);
     }
 }
