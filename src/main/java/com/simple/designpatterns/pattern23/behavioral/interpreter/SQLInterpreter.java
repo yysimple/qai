@@ -15,6 +15,11 @@ public class SQLInterpreter implements SQLExpression {
         this.sqlExpr = sqlExpr;
     }
 
+    /**
+     * 这里可以理解为，通过固定的sqlExpr，可以判断 传进来的sql是查询语句还是更新语句
+     * @param context
+     * @return
+     */
     @Override
     public boolean interpret(String context) {
         if (context.contains(sqlExpr)) {
