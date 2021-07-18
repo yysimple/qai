@@ -1,4 +1,4 @@
-package com.simple.designpatterns.pattern23.behavioral.intermediary;
+package com.simple.designpatterns.pattern23.behavioral.intermediary.one;
 
 /**
  * 项目: question-study-improve

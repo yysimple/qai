@@ -1,6 +1,6 @@
-package com.simple.designpatterns.pattern23.behavioral.intermediary.util;
+package com.simple.designpatterns.pattern23.behavioral.intermediary.one.util;
 
-import com.simple.designpatterns.pattern23.behavioral.intermediary.User;
+import com.simple.designpatterns.pattern23.behavioral.intermediary.one.User;
 
 import java.util.Date;
 

@@ -1,6 +1,6 @@
-package com.simple.designpatterns.pattern23.behavioral.intermediary;
+package com.simple.designpatterns.pattern23.behavioral.intermediary.one;
 
-import com.simple.designpatterns.pattern23.behavioral.intermediary.util.ChatRoom;
+import com.simple.designpatterns.pattern23.behavioral.intermediary.one.util.ChatRoom;
 
 /**
  * 项目: question-study-improve
