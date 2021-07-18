@@ -17,6 +17,6 @@ public class DebugLogger extends AbstractLogger {
 
     @Override
     protected void write(String message) {
-        System.out.println("File::Logger: " + message);
+        System.out.println("debug--[级别为 2]: " + message);
     }
 }

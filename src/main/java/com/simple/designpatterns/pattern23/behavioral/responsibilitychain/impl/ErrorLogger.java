@@ -18,6 +18,6 @@ public class ErrorLogger extends AbstractLogger {
 
     @Override
     protected void write(String message) {
-        System.out.println("Error Console::Logger: " + message);
+        System.out.println("error--[级别为 3]: " + message);
     }
 }

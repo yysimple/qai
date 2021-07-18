@@ -13,20 +13,33 @@ import com.simple.designpatterns.pattern23.behavioral.responsibilitychain.impl.D
  * @create: 2021-06-28 00:08
  **/
 public class ResponsibilityChainTest {
-    private static AbstractLogger getChainOfLoggers() {
+    /**
+     * 初始化拦截链规则
+     *
+     * @return
+     */
+    private static AbstractLogger initChain() {
 
         AbstractLogger errorLogger = new ErrorLogger(AbstractLogger.ERROR);
-        AbstractLogger fileLogger = new DebugLogger(AbstractLogger.DEBUG);
+        AbstractLogger debugLogger = new DebugLogger(AbstractLogger.DEBUG);
         AbstractLogger consoleLogger = new ConsoleLogger(AbstractLogger.INFO);
 
-        errorLogger.setNextLogger(fileLogger);
-        fileLogger.setNextLogger(consoleLogger);
+        /**
+         * 这里的关系是：
+         *  info：只能打印info级别的日志，对应等级 1
+         *  debug：可以打印info、debug两种级别的日志，对应等级 2
+         *  error：可打印info、debug、error三种级别的日志，对应等级 3
+         *
+         *  这里对用的就是，如果级别为 error的时候，可能会输出到三个地方，比如 文件、控制台等
+         */
+        errorLogger.setNextLogger(debugLogger);
+        debugLogger.setNextLogger(consoleLogger);
 
         return errorLogger;
     }
 
     public static void main(String[] args) {
-        AbstractLogger loggerChain = getChainOfLoggers();
+        AbstractLogger loggerChain = initChain();
 
         loggerChain.logMessage(AbstractLogger.INFO, "This is an information.");
         System.out.println("---------------------");
