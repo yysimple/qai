@@ -45,6 +45,12 @@ public abstract class AbstractDialect implements Dialect {
         return SqlUtils.toCountSql(sql, COUNTING_TABLE_ALIAS, sqlDialect);
     }
 
+    /**
+     * 获取sql总条数（记录数）
+     * @param sql
+     * @param expr
+     * @return
+     */
     @Override
     public String getCountSql(String sql, String expr) {
         return SqlUtils.toCountSql(sql, expr, COUNTING_TABLE_ALIAS, sqlDialect);

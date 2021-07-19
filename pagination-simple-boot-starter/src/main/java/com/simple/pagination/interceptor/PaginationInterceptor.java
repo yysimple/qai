@@ -63,10 +63,12 @@ public class PaginationInterceptor implements Interceptor {
         // 这里面就是传进来的参数
         Object parameter = args[1];
         Class<?> returnType = method.getReturnType();
+        // 校验参数
         if (!isPageable(parameter, returnType)) {
             return invocation.proceed();
         }
         PaginationParam param = analyseParameter(parameter, ms.getId());
+        // 校验是否传了分页参数，没有则不进拦截器
         if (!param.isPageable()) {
             return invocation.proceed();
         }
@@ -76,7 +78,7 @@ public class PaginationInterceptor implements Interceptor {
         BoundSql boundSql;
         CacheKey cacheKey;
         if (args.length == 4) {
-            boundSql = ms.getBoundSql(parameter);
+            boundSql = ms.getBoundSql(parameter); // 这里可以拿到 sql 、参数 、等信息
             cacheKey = executor.createCacheKey(ms, parameter, rowBounds, boundSql);
         } else {
             boundSql = (BoundSql) args[5];
@@ -216,8 +218,10 @@ public class PaginationInterceptor implements Interceptor {
     }
 
     /**
-     * Returns <code>true</code> if pagination has been enabled.
-     *
+     * 校验参数是否合法（是否存在page、size等字段，或者别名字段）
+     *  - 配置文件配置 page-field: xxx
+     *  - 继承 Pageable
+     *  - 使用 `@Pagination`、`@Page`、`@Size`、`@Offset`、`@Rows` 注解.
      * @param parameter  The parameter
      * @param returnType Return type
      */
@@ -255,12 +259,14 @@ public class PaginationInterceptor implements Interceptor {
 
     /**
      * Returns {@link PaginationParam} from parameter.
+     * 解析参数
      *
-     * @param parameter The parameter
+     * @param parameter 对应实体对象传入的值
+     * @param msId 对应的是mapper接口层的 权限定名 + 方法名 com.simple.page.mapper.StudentMapper.listStudent
      * @return {@link PaginationParam}
      */
     private PaginationParam analyseParameter(Object parameter, String msId) {
-        String key = buildUnrefinedParamKey(parameter, msId);
+        String key = buildUnrefinedParamKey(parameter, msId); // com.simple.page.mapper.StudentMapper.listStudent#com.simple.page.ibo.StudentIbo
         PaginationUnrefinedParam unrefinedParam = unrefinedParamMap.get(key);
         if (unrefinedParam == null) {
             unrefinedParam = getPaginationUnrefinedParam(parameter);
