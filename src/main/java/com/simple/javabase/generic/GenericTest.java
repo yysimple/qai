@@ -70,17 +70,40 @@ public class GenericTest extends BaseTest {
         Object next = genericService.next("11111111");
         log.info("实现类已经指定的泛型实例 ===> {}", next);
 
+        /**
+         * 传入泛型参数，但是这并不是泛型方法
+         */
         showGeneric(integerGenericService);
     }
+
+    @Test
+    public void test04() {
+        ResultBody<String> resultBody = new ResultBody<>(1, "111", "不确定泛型");
+        /**
+         *
+         */
+        Object o = showUnGeneric(resultBody);
+        log.info("通配符方式的泛型 ===> {}", o);
+    }
+
+    @Test
+    public void test05() {
+        GenericMethod<String, Integer> genericMethod = new GenericMethod<>();
+        genericMethod.map.put("age", 18);
+        genericMethod.map.put("weight", 180);
+        int age = genericMethod.dealValue("age");
+        log.info("返回值 ===》 {}", age);
+    }
+
 
     public void showGeneric(GenericService<String> genericService) {
         String next = genericService.next("测试泛型参数");
         log.info(next);
     }
 
-    public void showUnGeneric(GenericService<String> genericService) {
-        String next = genericService.next("测试泛型参数");
-        log.info(next);
+    public <T> T showUnGeneric(ResultBody<?> resultBody) {
+        Object data = resultBody.getData();
+        return (T) data;
     }
 
 }
