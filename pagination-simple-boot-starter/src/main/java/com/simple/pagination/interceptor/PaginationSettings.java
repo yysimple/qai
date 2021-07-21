@@ -217,6 +217,7 @@ public final class PaginationSettings {
         if (this.dialect == null && this.sqlDialect == null) {
             throw new NullPointerException("Dialect is not configured.");
         }
+        // 判断配置文件中是否存在 配置
         this.obtainValuesFromFields = (this.pageFieldName != null && this.sizeFieldName != null)
                 || (this.offsetFieldName != null && this.rowsFieldName != null);
         if (this.dialect == null) {

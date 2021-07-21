@@ -27,6 +27,6 @@ public class MyBeanFactoryPostProcessorTest implements BeanFactoryPostProcessor 
         // 在这里执行的时候，该bean还没有被初始化，所以会报空指针异常
         // userService.sayHello();
         System.out.println("我是自定义的beanFactoryPostProcessor ===> 在bean初始化之前执行");
-        System.out.println(beanFactory.getBeanDefinition("userService"));
+        System.out.println(beanFactory.getBeanDefinition("userService").getBeanClassName());
     }
 }
