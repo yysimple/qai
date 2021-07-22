@@ -1,9 +1,6 @@
-package com.simple.javabase.generic.impl;
+package com.simple.javabase.generic.basetest.impl;
 
-import com.simple.javabase.generic.GenericService;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.simple.javabase.generic.basetest.GenericService;
 
 /**
  * GenericImpl implements GenericService<T>：

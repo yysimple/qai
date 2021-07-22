@@ -1,4 +1,4 @@
-package com.simple.javabase.generic;
+package com.simple.javabase.generic.basetest;
 
 /**
  * @author WuChengXing

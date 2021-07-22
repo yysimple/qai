@@ -1,7 +1,7 @@
-package com.simple.javabase.generic;
+package com.simple.javabase.generic.basetest;
 
-import com.simple.javabase.generic.impl.GenericImpl;
-import com.simple.javabase.generic.impl.GenericStringImpl;
+import com.simple.javabase.generic.basetest.impl.GenericImpl;
+import com.simple.javabase.generic.basetest.impl.GenericStringImpl;
 import com.simple.util.BaseTest;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -42,7 +42,7 @@ public class GenericTest extends BaseTest {
     public void test02() {
         ResultBody<String> resultBody = new ResultBody<>(200, "成功", "userName");
         log.info("返回值 ===> {}", resultBody);
-        // 不管泛型里面传入的是什么 类类型， 最终返回的类类型都是同一个，都是泛型的载体  类类型 ===> class com.simple.javabase.generic.ResultBody
+        // 不管泛型里面传入的是什么 类类型， 最终返回的类类型都是同一个，都是泛型的载体  类类型 ===> class com.simple.javabase.generic.basetest.ResultBody
         log.info("类类型 ===> {}", resultBody.getClass());
 
         /**
