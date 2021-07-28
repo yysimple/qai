@@ -20,7 +20,9 @@ public class BlockOpe<T extends TypeBlock> implements Operation<T> {
     @Override
     public T Processing(T fruit) {
         T deal = fruitDeal.deal(fruit);
-        System.out.println("切成块状..." + deal);
+        String result = deal.getResult() + "\n already deal - 切成块状";
+        deal.setResult(result);
+        System.out.println("切成块状..." + deal.getName());
         return deal;
     }
 }

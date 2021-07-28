@@ -18,7 +18,9 @@ public class LiquidOpe<T extends TypeLiquid> implements Operation<T> {
     @Override
     public T Processing(T fruit) {
         T deal = fruitDeal.deal(fruit);
-        System.out.println("切成块状..." + deal);
+        String result = deal.getResult() + "\n already deal - 榨汁";
+        deal.setResult(result);
+        System.out.println("榨汁..." + deal.getName());
         return deal;
     }
 }

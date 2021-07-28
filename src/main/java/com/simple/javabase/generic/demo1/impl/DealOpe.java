@@ -15,11 +15,15 @@ public class DealOpe implements FruitDeal {
     public <T extends Fruit> T deal(T fruit) {
         if (fruit instanceof Apple) {
             Apple apple = (Apple) fruit;
-            System.out.println("苹果需要清洗：" + apple.getName() + "Wash...");
+            String result = apple.getResult() + "\n already Washing ...";
+            apple.setResult(result);
+            System.out.println("苹果需要清洗：" + apple.getName() + " Washing...");
             return (T) apple;
         } else if (fruit instanceof Banana) {
             Banana banana = (Banana) fruit;
-            System.out.println("香蕉需要剥皮：" + banana.getName() + "Peeling...");
+            String result = banana.getResult() + "\n already Peeling ...";
+            banana.setResult(result);
+            System.out.println("香蕉需要剥皮：" + banana.getName() + " Peeling...");
             return (T) banana;
         } else {
             System.out.println("其他水果随意：" + fruit.getName());
