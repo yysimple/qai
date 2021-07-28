@@ -1,6 +1,8 @@
 package com.simple.javabase.generic.demo1;
 
+import com.simple.javabase.generic.demo1.entity.Apple;
 import com.simple.javabase.generic.demo1.impl.BlockOpe;
+import com.simple.javabase.generic.demo1.impl.DealOpe;
 
 /**
  * @author WuChengXing
@@ -11,9 +13,12 @@ public class GenericTest {
         Apple apple = new Apple();
         apple.setName("apple");
         apple.setShape("yuan");
-        apple.setType("sweet");
-        Operation<Apple> operation = new BlockOpe<>();
-        Apple processing = operation.Processing(apple);
-        System.out.println(processing);
+        apple.setSize("big");
+        FruitDeal deal = new DealOpe();
+        Operation<Apple> operation = new BlockOpe<>(deal);
+        Apple a = operation.Processing(apple);
+        System.out.println("最终获取到的结果：==>" + a);
+        // Apple processing = operation.Processing(apple);
+        // System.out.println(processing);
     }
 }

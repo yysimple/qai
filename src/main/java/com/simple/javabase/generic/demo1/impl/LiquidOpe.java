@@ -1,19 +1,17 @@
 package com.simple.javabase.generic.demo1.impl;
 
 import com.simple.javabase.generic.demo1.FruitDeal;
-import com.simple.javabase.generic.demo1.entity.Fruit;
 import com.simple.javabase.generic.demo1.Operation;
-import com.simple.javabase.generic.demo1.entity.TypeBlock;
+import com.simple.javabase.generic.demo1.entity.TypeLiquid;
 
 /**
  * @author WuChengXing
- * @date 2021/7/27
+ * @date 2021/7/28
  */
-public class BlockOpe<T extends TypeBlock> implements Operation<T> {
-
+public class LiquidOpe<T extends TypeLiquid> implements Operation<T> {
     private FruitDeal fruitDeal;
 
-    public BlockOpe(FruitDeal fruitDeal) {
+    public LiquidOpe(FruitDeal fruitDeal) {
         this.fruitDeal = fruitDeal;
     }
 
