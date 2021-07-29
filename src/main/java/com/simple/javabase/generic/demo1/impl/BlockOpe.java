@@ -8,6 +8,7 @@ import com.simple.javabase.generic.demo1.entity.TypeBlock;
 /**
  * @author WuChengXing
  * @date 2021/7/27
+ * <T extends TypeBlock>：该类只能支持 TypeBlock 和 其子类的类类型传入，可以理解泛型限定了引入
  */
 public class BlockOpe<T extends TypeBlock> implements Operation<T> {
 
