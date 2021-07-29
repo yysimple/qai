@@ -1,4 +1,4 @@
-package com.simple.reflect;
+package com.simple.javabase.reflect.reflect01;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -45,7 +45,7 @@ public class ClassTest {
         customTwoParamCon.newInstance("wcx", 18);
 
         Constructor<? extends Student> customOneParamCon = aClass.getDeclaredConstructor(one);
-        // 不设置这个的话，会抛出异常 Class com.simple.reflect.ClassTest can not access a member of class com.simple.reflect.Student with modifiers "private"
+        // 不设置这个的话，会抛出异常 Class com.simple.javabase.reflect.reflect.ClassTest can not access a member of class com.simple.javabase.reflect.reflect.Student with modifiers "private"
         customOneParamCon.setAccessible(true);
         // 使用构造器
         customOneParamCon.newInstance("wcx");

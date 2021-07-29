@@ -1,4 +1,4 @@
-package com.simple.reflect;
+package com.simple.javabase.reflect.reflect01;
 
 import lombok.Data;
 
