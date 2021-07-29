@@ -9,7 +9,7 @@ import com.simple.javabase.generic.demo1.entity.TypeLiquid;
  * @date 2021/7/28
  */
 public class LiquidOpe<T extends TypeLiquid> implements Operation<T> {
-    private FruitDeal fruitDeal;
+    private final FruitDeal fruitDeal;
 
     public LiquidOpe(FruitDeal fruitDeal) {
         this.fruitDeal = fruitDeal;

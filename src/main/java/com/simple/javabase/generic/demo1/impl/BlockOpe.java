@@ -11,7 +11,7 @@ import com.simple.javabase.generic.demo1.entity.TypeBlock;
  */
 public class BlockOpe<T extends TypeBlock> implements Operation<T> {
 
-    private FruitDeal fruitDeal;
+    private final FruitDeal fruitDeal;
 
     public BlockOpe(FruitDeal fruitDeal) {
         this.fruitDeal = fruitDeal;
