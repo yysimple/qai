@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.management.Query;
 import java.util.List;
 
 /**
@@ -26,6 +27,11 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
     public Page<Student> listStudent(StudentIbo studentIbo) {
         List<Student> students = studentMapper.listStudent(studentIbo);
         return Page.of(students);
+    }
+
+    @Override
+    public List<Student> listStudents(StudentIbo studentIbo) {
+        return studentMapper.listStudent(studentIbo);
     }
 }
 

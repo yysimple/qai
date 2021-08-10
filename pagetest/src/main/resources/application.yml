@@ -4,13 +4,13 @@ spring:
 #    url: jdbc:mysql://192.168.109.123:3306/page_test?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
 #    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: root
+    password: 123456
   #redis:
   #  password: 123456
   #  port: 6379
   #  host: 192.168.109.135
 server:
-  port: 8888
+    port: 8888
 
 
 #simple:

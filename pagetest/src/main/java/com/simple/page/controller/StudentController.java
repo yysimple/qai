@@ -38,6 +38,13 @@ public class StudentController {
         return new SimpleResponse<>(studentPage);
     }
 
+    @ApiOperation("查询列表，不分页的情况")
+    @PostMapping("/listStudent")
+    public SimpleResponse<List<Student>> listStudents(@RequestBody StudentIbo studentIbo) {
+        List<Student> students = studentService.listStudents(studentIbo);
+        return new SimpleResponse<>(students);
+    }
+
     @GetMapping("/hello")
     public SimpleResponse<String> hello() {
         return new SimpleResponse<>("test");
