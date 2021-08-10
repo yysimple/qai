@@ -1,4 +1,4 @@
-package com.simple.juc;
+package com.simple.juc.demo1;
 
 /**
  * 项目: mianshi-test

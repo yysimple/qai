@@ -1,9 +1,6 @@
-package com.simple.juc;
-
-import io.lettuce.core.ConnectionFuture;
+package com.simple.juc.demo1;
 
 import java.util.concurrent.*;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 项目: mianshi-test
