@@ -11,6 +11,9 @@ import java.util.List;
 public class CollectionUtils {
 
     public static <T> boolean isEmpty(List<T> res) {
+        if (res == null || res.size() < 1) {
+            return false;
+        }
         return true;
     }
 }
