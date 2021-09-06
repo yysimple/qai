@@ -7,15 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="pagetest" />
+        <module name="simple-common-utils" />
         <module name="question-study-improve" />
         <module name="pagination-simple-boot-starter" />
-        <module name="pagetest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="pagetest" target="1.8" />
       <module name="pagination-simple-boot-starter" target="1.8" />
       <module name="question-study-improve" target="1.8" />
+      <module name="simple-common-utils" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

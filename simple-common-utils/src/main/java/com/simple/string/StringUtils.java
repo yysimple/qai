@@ -11,7 +11,7 @@ import java.util.List;
  * @author: WuChengXing
  * @create: 2021-08-28 01:11
  **/
-public class StringUtils {
+public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /**
      * 找到字符串中所有字母异位词
      * eg: 在 s = acdbcdcba  中 找到 p = abc 的异位词，也就是不考虑 abc 的顺序

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/pagetest/pagetest.iml" filepath="$PROJECT_DIR$/pagetest/pagetest.iml" />
       <module fileurl="file://$PROJECT_DIR$/pagination-simple-boot-starter/pagination-simple-boot-starter.iml" filepath="$PROJECT_DIR$/pagination-simple-boot-starter/pagination-simple-boot-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/question-study-improve.iml" filepath="$PROJECT_DIR$/question-study-improve.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simple-common-utils/simple-common-utils.iml" filepath="$PROJECT_DIR$/simple-common-utils/simple-common-utils.iml" />
     </modules>
   </component>
 </project>
