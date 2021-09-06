@@ -27,23 +27,23 @@
             <artifactId>spring-context-support</artifactId>
         </dependency>
 
-    <!--    <dependency>
-            <groupId>com.simple</groupId>
-            <artifactId>pagination-simple-boot-starter</artifactId>
-            <version>1.0.0.RELEASE</version>
-        </dependency>-->
+        <!--    <dependency>
+                <groupId>com.simple</groupId>
+                <artifactId>pagination-simple-boot-starter</artifactId>
+                <version>1.0.0.RELEASE</version>
+            </dependency>-->
 
 
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.boot</groupId>-->
-<!--            <artifactId>nacos-discovery-spring-boot-starter</artifactId>-->
-<!--            <version>0.2.3</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.boot</groupId>-->
-<!--            <artifactId>nacos-config-spring-boot-starter</artifactId>-->
-<!--            <version>0.2.3</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.boot</groupId>-->
+        <!--            <artifactId>nacos-discovery-spring-boot-starter</artifactId>-->
+        <!--            <version>0.2.3</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.boot</groupId>-->
+        <!--            <artifactId>nacos-config-spring-boot-starter</artifactId>-->
+        <!--            <version>0.2.3</version>-->
+        <!--        </dependency>-->
 
         <!-- SpringWeb模块 -->
         <dependency>
