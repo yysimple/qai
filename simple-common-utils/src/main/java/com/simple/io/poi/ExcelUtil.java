@@ -269,13 +269,13 @@ public class ExcelUtil<T> {
             log.error("导出Excel异常{}", e.getMessage());
             throw new RuntimeException("导出Excel失败，请联系网站管理员！");
         } finally {
-            if (wb != null) {
+            /*if (wb != null) {
                 try {
-                    wb.close();
+                   //  wb.close();
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
-            }
+            }*/
             if (out != null) {
                 try {
                     out.close();

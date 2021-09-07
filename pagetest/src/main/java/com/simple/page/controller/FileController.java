@@ -1,7 +1,7 @@
 package com.simple.page.controller;
 
-import cn.hutool.poi.excel.ExcelUtil;
 import com.alibaba.fastjson.JSONArray;
+import com.simple.io.poi.ExcelUtil;
 import com.simple.page.domain.StudentTest;
 import com.simple.page.util.ExcelUtils;
 import org.springframework.web.bind.annotation.*;
@@ -89,5 +89,7 @@ public class FileController {
 
         studentTests.add(studentTest1);
         studentTests.add(studentTest2);
+        ExcelUtil<StudentTest> excelUtil = new ExcelUtil<>(StudentTest.class);
+        excelUtil.exportExcel(studentTests, "studentTests");
     }
 }
