@@ -39,7 +39,7 @@ public class ExcelUtils {
      * @param out         输出流
      */
     public static void exportExcelX(String title, Map<String, String> headMap, JSONArray jsonArray, String datePattern, int colWidth, OutputStream out) {
-        if (datePattern == null) datePattern = DEFAULT_DATE_PATTERN;
+        /*if (datePattern == null) datePattern = DEFAULT_DATE_PATTERN;
         // 声明一个工作薄
         SXSSFWorkbook workbook = new SXSSFWorkbook(1000);//缓存
         workbook.setCompressTempFiles(true);
@@ -123,11 +123,11 @@ public class ExcelUtils {
                 String cellValue = "";
                 if (o == null) cellValue = "";
                 else if (o instanceof Date) cellValue = new SimpleDateFormat(datePattern).format(o);
-                /*else if(o instanceof Float || o instanceof Double) {
+                *//*else if(o instanceof Float || o instanceof Double) {
                 	double d = (double) o;
                 	if(d%1==0)  cellValue=o.toString();
                 	else cellValue= new BigDecimal(o.toString()).setScale(2,BigDecimal.ROUND_HALF_UP).toString();
-                }*/
+                }*//*
                 else cellValue = o.toString();
                 cell.setCellValue(cellValue);
                 cell.setCellStyle(cellStyle);
@@ -135,16 +135,16 @@ public class ExcelUtils {
             rowIndex++;
         }
         // 自动调整宽度
-        /*for (int i = 0; i < headers.length; i++) {
+        *//*for (int i = 0; i < headers.length; i++) {
             sheet.autoSizeColumn(i);
-        }*/
+        }*//*
         try {
             workbook.write(out);
-            /*workbook.close();
-            workbook.dispose();*/
+            *//*workbook.close();
+            workbook.dispose();*//*
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     /**

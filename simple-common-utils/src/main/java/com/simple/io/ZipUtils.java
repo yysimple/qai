@@ -1,8 +1,11 @@
 package com.simple.io;
 
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.io.IoUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 import java.util.zip.ZipEntry;
@@ -20,69 +23,102 @@ public class ZipUtils {
      */
     private static final int BUFFER_SIZE = 2 * 1024;
 
-    public static final String tmpDir = "/tmpRoot";
-
-    public static void createTmpDirWithFiles() {
-
-    }
+    /**
+     * 基本路径
+     */
+    public static final String BASE_DIR = "tmpRoot";
 
     /**
-     * 获取系统的临时文件
+     * 系统临时文件
+     */
+    public static String BASE_PATH = System.getProperty("java.io.tmpdir") + BASE_DIR;
+
+    /**
+     * 系统文件分隔符
+     */
+    public static String SEPARATOR = System.getProperty("file.separator");
+
+    /**
+     * 创建文件夹
      *
+     * @param targetDir
      * @return
      */
-    public static String getSystemTmpDir() {
-        return System.getProperty("java.io.tmpdir");
+    public static String createTmpDir(String targetDir) {
+        String tmpDir = BASE_PATH + SEPARATOR + targetDir;
+        File file = new File(tmpDir);
+        if (!file.exists()) {
+            boolean mkdir = file.mkdir();
+            if (mkdir) {
+                log.info("create dir success: {}", tmpDir);
+                return tmpDir;
+            }
+            log.info("create dir fail: {}", tmpDir);
+            return "";
+        } else {
+            log.info("dir already exist: {}", tmpDir);
+            return tmpDir;
+        }
+    }
+
+    public static String createTmpDir() {
+        // export base path
+        File file = new File(BASE_PATH);
+        if (!file.exists()) {
+            boolean mkdir = file.mkdir();
+            if (mkdir) {
+                log.info("create dir success: {}", BASE_PATH);
+                return BASE_PATH;
+            } else {
+                log.info("create dir fail: {}", BASE_PATH);
+                return "";
+            }
+        } else {
+            log.info("dir already exist: {}", BASE_PATH);
+            return BASE_PATH;
+        }
+    }
+
+    public static void deleteTmpDir() {
+        boolean del = FileUtil.del(BASE_PATH);
+        if (del) {
+            log.info("delete dir success: {}", BASE_PATH);
+        } else {
+            log.info("delete dir fail: {}", BASE_PATH);
+        }
     }
 
     /**
-     * 链接url下载图片
+     * 下载远程文件
      *
-     * @param urlList
-     * @param path
-     * @throws Exception
+     * @param remoteFilePath
+     * @param downloadPath
      */
-    public static void downloadPicture(String urlList, String path) throws Exception {
-        URL url = null;
-        DataInputStream dataInputStream = null;
-        FileOutputStream fileOutputStream = null;
-        ByteArrayOutputStream output = null;
+    public static void downloadFile(String remoteFilePath, String downloadPath) {
+        URL urlfile = null;
+        HttpURLConnection httpUrl = null;
+        BufferedInputStream bis = null;
+        BufferedOutputStream bos = null;
+        File f = new File(downloadPath);
         try {
-            url = new URL(urlList);
-            dataInputStream = new DataInputStream(url.openStream());
-            fileOutputStream = new FileOutputStream(new File(path));
-            output = new ByteArrayOutputStream();
-
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = dataInputStream.read(buffer)) > 0) {
-                output.write(buffer, 0, length);
+            urlfile = new URL(remoteFilePath);
+            httpUrl = (HttpURLConnection) urlfile.openConnection();
+            httpUrl.connect();
+            bis = new BufferedInputStream(httpUrl.getInputStream());
+            bos = new BufferedOutputStream(new FileOutputStream(f));
+            int len = BUFFER_SIZE;
+            byte[] b = new byte[len];
+            while ((len = bis.read(b)) != -1) {
+                bos.write(b, 0, len);
             }
-            fileOutputStream.write(output.toByteArray());
-        } catch (IOException e) {
+            bos.flush();
+            bis.close();
+            httpUrl.disconnect();
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (dataInputStream != null) {
-                try {
-                    dataInputStream.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (output != null) {
-                try {
-                    output.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+            close(bis);
+            close(bos);
         }
     }
 
@@ -107,12 +143,23 @@ public class ZipUtils {
         } catch (Exception e) {
             throw new RuntimeException("zip error from ZipUtils", e);
         } finally {
-            if (zos != null) {
-                try {
-                    zos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            close(zos);
+            close(out);
+        }
+    }
+
+    /**
+     * 关闭流
+     *
+     * @param t
+     * @param <T>
+     */
+    public static <T extends Closeable> void close(T t) {
+        if (t != null) {
+            try {
+                t.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -206,10 +253,15 @@ public class ZipUtils {
 
     public static void main(String[] args) throws FileNotFoundException {
         /** 测试压缩方法1  */
-        FileOutputStream fos1 = new FileOutputStream(new File("d:/mytest01.zip"));
-        ZipUtils.toZip("D:/test01", fos1, true);
+        /*FileOutputStream fos1 = new FileOutputStream(new File("d:/mytest01.zip"));
+        ZipUtils.toZip("D:/test01", fos1, true);*/
 
-        System.out.println(getSystemTmpDir());
+        //System.out.println(getSystemTmpDir());
+
+        String TMP_DIR = createTmpDir("1");
+        System.out.println(TMP_DIR);
+        deleteTmpDir();
+        System.out.println();
         /** 测试压缩方法2  */
         /*List<File> fileList = new ArrayList<>();
         fileList.add(new File("D:/Java/jdk1.7.0_45_64bit/bin/jar.exe"));
@@ -217,5 +269,6 @@ public class ZipUtils {
         FileOutputStream fos2 = new FileOutputStream(new File("c:/mytest02.zip"));
         ZipUtils.toZip(fileList, fos2);*/
     }
+
 
 }

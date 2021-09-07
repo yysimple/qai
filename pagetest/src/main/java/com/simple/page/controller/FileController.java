@@ -1,10 +1,15 @@
 package com.simple.page.controller;
 
+import com.alibaba.excel.EasyExcel;
 import com.alibaba.fastjson.JSONArray;
+import com.simple.io.ZipUtils;
 import com.simple.io.poi.ExcelUtil;
 import com.simple.page.domain.StudentTest;
+import com.simple.page.domain.easyexcel.DemoData;
 import com.simple.page.util.ExcelUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -70,6 +75,46 @@ public class FileController {
         zipOutputStream.close();
         sos.close();
         System.out.println("导出zip完成");
+    }
+
+    @GetMapping("/zip")
+    public void exportZip(HttpServletResponse response) throws Exception {
+        long start = System.currentTimeMillis();
+        ServletOutputStream sos = response.getOutputStream();
+        String zipname = "test.zip";
+        response.reset();
+        response.setContentType("application/x-download");
+        response.setHeader("Content-Disposition", "attachment;filename=" + new String((zipname).getBytes(), StandardCharsets.UTF_8));
+        String tmpDir = ZipUtils.createTmpDir();
+        String fileName = tmpDir + ZipUtils.SEPARATOR + "simpleWrite" + System.currentTimeMillis() + ".xlsx";
+        List<DemoData> data = data();
+        EasyExcel.write(fileName, DemoData.class).sheet("模板").doWrite(data);
+        for (DemoData datum : data) {
+            String string = datum.getString();
+            String subTmp = ZipUtils.createTmpDir(string);
+            String subTmpFileName1 = subTmp + ZipUtils.SEPARATOR + "imgUrl1-" + System.currentTimeMillis() + ".jpg";
+            ZipUtils.downloadFile(datum.getImgUrl1(), subTmpFileName1);
+            String subTmpFileName2 = subTmp + ZipUtils.SEPARATOR + "imgUrl2-" + System.currentTimeMillis() + ".jpg";
+            ZipUtils.downloadFile(datum.getImgUrl2(), subTmpFileName2);
+        }
+        ZipUtils.toZip(tmpDir, sos, true);
+        ZipUtils.deleteTmpDir();
+        long end = System.currentTimeMillis();
+        System.out.println("下载时间：" + (end - start));
+    }
+
+    private List<DemoData> data() {
+        List<DemoData> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            DemoData data = new DemoData();
+            data.setString("字符串" + i);
+            data.setDate(new Date());
+            data.setDoubleData(0.56);
+            data.setImgUrl1("https://cdn.schoolpal.cn/spfe/material/f2055ce3166f4a8794504dc5683d2c9a/1311e651-dd0b-41f0-82e2-59be008f68a3-1624419806342.jpeg");
+            data.setImgUrl2("https://cdn.schoolpal.cn/spfe/material/f2055ce3166f4a8794504dc5683d2c9a/1311e651-dd0b-41f0-82e2-59be008f68a3-1624419806342.jpeg");
+            list.add(data);
+        }
+        return list;
     }
 
     @GetMapping("/export")
