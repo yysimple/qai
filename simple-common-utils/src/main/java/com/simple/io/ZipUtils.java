@@ -232,7 +232,7 @@ public class ZipUtils {
                 // 需要保留原来的文件结构时,需要对空文件夹进行处理
                 if (KeepDirStructure) {
                     // 空文件夹的处理
-                    zos.putNextEntry(new ZipEntry(name + "/"));
+                    zos.putNextEntry(new ZipEntry(name + SEPARATOR));
                     // 没有文件，不需要文件的copy
                     zos.closeEntry();
                 }
@@ -242,7 +242,7 @@ public class ZipUtils {
                     if (KeepDirStructure) {
                         // 注意：file.getName()前面需要带上父文件夹的名字加一斜杠,
                         // 不然最后压缩包中就不能保留原来的文件结构,即：所有文件都跑到压缩包根目录下了
-                        compress(file, zos, name + "/" + file.getName(), true);
+                        compress(file, zos, name + SEPARATOR + file.getName(), true);
                     } else {
                         compress(file, zos, file.getName(), false);
                     }
