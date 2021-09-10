@@ -1,9 +1,8 @@
-package com.simple.jihe;
+package com.simple.javabase.jihe;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Vector;
 
 /**
  * 项目: mianshi-test

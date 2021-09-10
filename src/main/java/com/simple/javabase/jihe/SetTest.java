@@ -1,4 +1,4 @@
-package com.simple.jihe;
+package com.simple.javabase.jihe;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;

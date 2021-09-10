@@ -1,10 +1,9 @@
-package com.simple.jihe;
+package com.simple.javabase.jihe;
 
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 项目: mianshi-test
