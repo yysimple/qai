@@ -28,3 +28,16 @@ create table classroom
 
 insert into classroom(classroom_name, classroom_describe) value ('普通班', '里面的人有好有坏');
 insert into classroom(classroom_name, classroom_describe) value ('尖子班', '里面的人都是牛逼的人物');
+
+create table if not exists page_test.demo_data
+(
+	id bigint auto_increment comment 'id'
+		primary key,
+	string varchar(555) default '' not null comment '字符串标题',
+	date datetime default CURRENT_TIMESTAMP not null comment '日期标题',
+	double_data double default 0 not null,
+	img_url1 varchar(555) default '' not null comment '图片路径1',
+	img_url2 varchar(1111) default '' not null comment '图片路径2',
+	`ignore` varchar(111) default '' null comment '忽略的字段'
+)
+comment '测试导入的表';

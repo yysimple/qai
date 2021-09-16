@@ -11,7 +11,7 @@ import java.util.Date;
  * @date 2021/9/7
  */
 @Data
-public class DemoData {
+public class DemoDataBo {
     @ExcelProperty("字符串标题")
     private String string;
     @ExcelProperty("日期标题")

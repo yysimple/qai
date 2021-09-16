@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simple.page.mapper.DemoDataMapper">
+
+    <resultMap id="BaseResultMap" type="com.simple.page.domain.DemoData">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="string" column="string" jdbcType="VARCHAR"/>
+            <result property="date" column="date" jdbcType="TIMESTAMP"/>
+            <result property="doubleData" column="double_data" jdbcType="DOUBLE"/>
+            <result property="imgUrl1" column="img_url1" jdbcType="VARCHAR"/>
+            <result property="imgUrl2" column="img_url2" jdbcType="VARCHAR"/>
+            <result property="ignore" column="ignore" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,string,date,
+        double_data,img_url1,img_url2,
+        ignore
+    </sql>
+</mapper>

@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.simple.io.ZipUtils;
 import com.simple.io.poi.ExcelUtil;
 import com.simple.page.domain.StudentTest;
-import com.simple.page.domain.easyexcel.DemoData;
+import com.simple.page.domain.easyexcel.DemoDataBo;
 import com.simple.page.util.ExcelUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -87,9 +87,9 @@ public class FileController {
         response.setHeader("Content-Disposition", "attachment;filename=" + new String((zipname).getBytes(), StandardCharsets.UTF_8));
         String tmpDir = ZipUtils.createTmpDir();
         String fileName = tmpDir + ZipUtils.SEPARATOR + "simpleWrite" + System.currentTimeMillis() + ".xlsx";
-        List<DemoData> data = data();
-        EasyExcel.write(fileName, DemoData.class).sheet("模板").doWrite(data);
-        for (DemoData datum : data) {
+        List<DemoDataBo> data = data();
+        EasyExcel.write(fileName, DemoDataBo.class).sheet("模板").doWrite(data);
+        for (DemoDataBo datum : data) {
             String string = datum.getString();
             String subTmp = ZipUtils.createTmpDir(string);
             String subTmpFileName1 = subTmp + ZipUtils.SEPARATOR + "imgUrl1-" + System.currentTimeMillis() + ".jpg";
@@ -103,10 +103,10 @@ public class FileController {
         System.out.println("下载时间：" + (end - start));
     }
 
-    private List<DemoData> data() {
-        List<DemoData> list = new ArrayList<>();
+    private List<DemoDataBo> data() {
+        List<DemoDataBo> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            DemoData data = new DemoData();
+            DemoDataBo data = new DemoDataBo();
             data.setString("字符串" + i);
             data.setDate(new Date());
             data.setDoubleData(0.56);
