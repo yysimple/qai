@@ -1,4 +1,4 @@
-package com.simple.juc.studyinbook;
+package com.simple.juc.studyinbook.base;
 
 /**
  * @author WuChengXing
