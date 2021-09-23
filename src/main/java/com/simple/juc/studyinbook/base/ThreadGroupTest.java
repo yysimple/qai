@@ -68,4 +68,28 @@ public class ThreadGroupTest {
         System.out.println("线程组的活动线程数：" + i);
     }
 
+    @Test
+    public void tGHandleException() {
+        ThreadGroup threadGroup1 = new ThreadGroup("group1") {
+            // 继承ThreadGroup并重新定义以下方法
+            // 在线程成员抛出unchecked exception
+            // 会执行此方法
+            @Override
+            public void uncaughtException(Thread t, Throwable e) {
+                System.out.println(t.getName() + ": " + e.getMessage());
+            }
+        };
+
+        // 这个线程是threadGroup1的一员
+        Thread thread1 = new Thread(threadGroup1, () -> {
+            System.out.println("testThread当前线程组名字：" +
+                    Thread.currentThread().getThreadGroup().getName());
+            System.out.println("testThread线程名字：" +
+                    Thread.currentThread().getName());
+            // 抛出unchecked异常
+            throw new RuntimeException("测试异常");
+        });
+
+        thread1.start();
+    }
 }
