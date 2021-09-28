@@ -14,9 +14,11 @@ public class WaitAndNotify {
                 for (int i = 1; i <= 5; i++) {
                     try {
                         System.out.println("ThreadA: " + i);
+                        // 这里会进入等待状态，但是不会释放锁
                         lock.notify();
                         Thread.sleep(1000);
                         System.out.println("A 通知 B");
+                        // 这里的话回去释放当前锁
                         lock.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
