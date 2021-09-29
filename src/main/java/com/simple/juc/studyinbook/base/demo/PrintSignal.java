@@ -1,15 +1,18 @@
 package com.simple.juc.studyinbook.base.demo;
 
+import lombok.SneakyThrows;
+
 /**
  * @author WuChengXing
  * @date 2021/9/28
  */
 public class PrintSignal {
 
-    private static int signal = 1;
+    private static volatile int signal = 1;
 
     static class ThreadA implements Runnable {
 
+        @SneakyThrows
         @Override
         public void run() {
             while (signal < 10) {
@@ -17,6 +20,8 @@ public class PrintSignal {
                     System.out.println("A-线程,signal=" + signal);
                     signal++;
                 }
+                Thread.sleep(500);
+                System.out.println("--------");
             }
         }
     }
@@ -47,11 +52,17 @@ public class PrintSignal {
         }
     }
 
+    /**
+     * 这里很简单，
+     *
+     * @param args
+     * @throws InterruptedException
+     */
     public static void main(String[] args) throws InterruptedException {
         new Thread(new ThreadA()).start();
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
         new Thread(new ThreadB()).start();
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
         new Thread(new ThreadC()).start();
     }
 }
