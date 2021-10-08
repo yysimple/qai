@@ -8,7 +8,7 @@ import org.junit.Test;
  * @author: WuChengXing
  * @create: 2021-10-07 17:19
  **/
-public class StartEndTest extends AlgorithmBaseTest{
+public class StartEndTest extends BaseTest {
 
     @Test
     public void testTime() throws InterruptedException {
