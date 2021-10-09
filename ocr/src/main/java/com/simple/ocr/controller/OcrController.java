@@ -1,14 +1,12 @@
 package com.simple.ocr.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 /**
  * 功能描述:
@@ -20,30 +18,43 @@ import java.io.InputStreamReader;
 public class OcrController {
 
     @PostMapping("/image/ocr")
-    public String reg(@RequestParam("file") MultipartFile file) throws IOException {
+    public String reg(@RequestBody MultipartFile file) throws IOException {
         String result = "";
         String filename = file.getOriginalFilename();
-        File save = new File(System.getProperty("user.dir") + "\\" + filename);
+        File save = new File(System.getProperty("java.io.tmpdir") + filename);
+        System.out.println();
         if (!save.exists()) {
             save.createNewFile();
         }
         file.transferTo(save);
-        String cmd = String.format("tesseract %s stdout -l %s", System.getProperty("user.dir") + "\\" + filename, "chi_sim");
-        result = cmd(cmd);
+        String tmpInputPath = System.getProperty("java.io.tmpdir") + filename;
+        String outputPath = tmpInputPath.substring(0, tmpInputPath.lastIndexOf("."));
+        System.out.println("输入路径：" + tmpInputPath + ", 输出路径：" + outputPath);
+        System.out.println(save.exists());
+        String cmd = String.format("D:\\tools\\software\\ocr\\source\\tesseract %s %s %s", tmpInputPath, outputPath, "-l chi_sim");
+        System.out.println("指令：" + cmd);
+        result = cmd(cmd, outputPath);
         return result;
     }
 
-    public static String cmd(String cmd) {
+    public String cmd(String cmd, String outputPath) {
         BufferedReader br = null;
+        String result = "";
         try {
             Process p = Runtime.getRuntime().exec(cmd);
-            br = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String line = null;
-            StringBuilder sb = new StringBuilder();
-            while ((line = br.readLine()) != null) {
-                sb.append(line + "\n");
+            // 读取文件
+            File file = new File(outputPath + ".txt");
+            System.out.println("最后的输出路径：" + outputPath);
+            br = new BufferedReader(new FileReader(file));
+            String temp = "";
+            StringBuffer sb = new StringBuffer();
+            while ((temp = br.readLine()) != null) {
+                sb.append(temp);
             }
-            return sb.toString();
+            // 文字结果
+            result = sb.toString();
+            System.out.println("最后的结果：" + result);
+            return result;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -57,4 +68,6 @@ public class OcrController {
         }
         return null;
     }
+
+
 }
