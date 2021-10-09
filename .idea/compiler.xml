@@ -12,10 +12,12 @@
         <module name="question-study-improve" />
         <module name="pagination-simple-boot-starter" />
         <module name="algorithm" />
+        <module name="ocr" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="algorithm" target="1.8" />
+      <module name="ocr" target="1.8" />
       <module name="pagetest" target="1.8" />
       <module name="pagination-simple-boot-starter" target="1.8" />
       <module name="question-study-improve" target="1.8" />
@@ -25,6 +27,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="algorithm" options="-parameters" />
+      <module name="ocr" options="-parameters" />
       <module name="pagetest" options="-parameters" />
       <module name="pagination-simple-boot-starter" options="-parameters" />
       <module name="question-study-improve" options="-parameters" />
