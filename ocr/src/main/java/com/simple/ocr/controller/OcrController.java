@@ -21,17 +21,17 @@ public class OcrController {
     public String reg(@RequestBody MultipartFile file) throws IOException {
         String result = "";
         String filename = file.getOriginalFilename();
-        File save = new File(System.getProperty("java.io.tmpdir") + filename);
+        String createFile = "E:\\ocr\\" + filename;
+        File save = new File(createFile);
         System.out.println();
         if (!save.exists()) {
             save.createNewFile();
         }
         file.transferTo(save);
-        String tmpInputPath = System.getProperty("java.io.tmpdir") + filename;
-        String outputPath = tmpInputPath.substring(0, tmpInputPath.lastIndexOf("."));
-        System.out.println("输入路径：" + tmpInputPath + ", 输出路径：" + outputPath);
+        String outputPath = createFile.substring(0, createFile.lastIndexOf("."));
+        System.out.println("输入路径：" + createFile + ", 输出路径：" + outputPath);
         System.out.println(save.exists());
-        String cmd = String.format("D:\\tools\\software\\ocr\\source\\tesseract %s %s %s", tmpInputPath, outputPath, "-l chi_sim");
+        String cmd = String.format("D:\\tools\\software\\ocr\\source\\tesseract %s %s %s", createFile, outputPath, "-l chi_sim");
         System.out.println("指令：" + cmd);
         result = cmd(cmd, outputPath);
         return result;
@@ -42,19 +42,23 @@ public class OcrController {
         String result = "";
         try {
             Process p = Runtime.getRuntime().exec(cmd);
-            // 读取文件
-            File file = new File(outputPath + ".txt");
-            System.out.println("最后的输出路径：" + outputPath);
-            br = new BufferedReader(new FileReader(file));
-            String temp = "";
-            StringBuffer sb = new StringBuffer();
-            while ((temp = br.readLine()) != null) {
-                sb.append(temp);
+            int i = p.waitFor();
+            if (i == 0) {
+                // 读取文件
+                String outFile = outputPath + ".txt";
+                File file = new File(outFile);
+                System.out.println("最后的输出路径：" + outFile);
+                br = new BufferedReader(new FileReader(file));
+                String temp = "";
+                StringBuffer sb = new StringBuffer();
+                while ((temp = br.readLine()) != null) {
+                    sb.append(temp);
+                }
+                // 文字结果
+                result = sb.toString();
+                System.out.println("最后的结果：" + result);
+                return result;
             }
-            // 文字结果
-            result = sb.toString();
-            System.out.println("最后的结果：" + result);
-            return result;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -68,6 +72,5 @@ public class OcrController {
         }
         return null;
     }
-
 
 }
