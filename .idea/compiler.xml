@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="com.simple.pagetest" />
+        <module name="question-study-improve" />
         <module name="simple-common-utils" />
         <module name="pagetest" />
-        <module name="question-study-improve" />
         <module name="pagination-simple-boot-starter" />
         <module name="algorithm" />
         <module name="ocr" />
@@ -17,16 +18,20 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="algorithm" target="1.8" />
+
+      <module name="com.simple.pagetest" target="1.8" />
+
       <module name="ocr" target="1.8" />
       <module name="pagetest" target="1.8" />
       <module name="pagination-simple-boot-starter" target="1.8" />
       <module name="question-study-improve" target="1.8" />
-      <module name="simple-common-utils" target="8" />
+      <module name="simple-common-utils" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="algorithm" options="-parameters" />
+      <module name="com.simple.pagetest" options="-parameters" />
       <module name="ocr" options="-parameters" />
       <module name="pagetest" options="-parameters" />
       <module name="pagination-simple-boot-starter" options="-parameters" />
