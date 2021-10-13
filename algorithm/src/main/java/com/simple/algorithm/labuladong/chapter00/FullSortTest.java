@@ -52,7 +52,7 @@ public class FullSortTest extends BaseTest {
     }
 
     public List<List<Integer>> testBacktrack(int[] nums) {
-        // 用来记录路劲的
+        // 用来记录路径的
         List<Integer> track = new ArrayList<>();
         backtrack(nums, track);
         return allResult;
@@ -71,12 +71,17 @@ public class FullSortTest extends BaseTest {
             allResult.add(new ArrayList<>(track));
             return;
         }
-        for (int i = 0; i < nums.length; i++) {
-            if (track.contains(nums[i])) {
+        // 遍历【选择列表】
+        for (int num : nums) {
+            // 排除不合法的选择
+            if (track.contains(num)) {
                 continue;
             }
-            track.add(nums[i]);
+            // 做选择
+            track.add(num);
+            // 进入下一层决策树
             backtrack(nums, track);
+            // 取消选择
             track.remove(track.size() - 1);
         }
 
