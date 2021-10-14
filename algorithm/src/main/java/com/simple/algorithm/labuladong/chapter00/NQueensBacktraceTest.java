@@ -70,7 +70,7 @@ public class NQueensBacktraceTest extends BaseTest {
                  * 这个公式需要自己总结，最好是画个图去理解：
                  * - 首先我们应该想到把所有不能放的位置，列出一些情况，然后找出那些不可以放置的位置
                  */
-                // 这里就是 左上到右下
+                // 这里就是 左上到右下（位置相减的值应该都是唯一的，同一个斜线，所以用set去重，保留一个即可）
                 int diagonalLeft = row - i;
                 if (diagonalLefts.contains(diagonalLeft)) {
                     continue;
