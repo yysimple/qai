@@ -164,16 +164,17 @@ public class MakeTheChangeTest extends BaseTest {
         // 这里填充的话就是总金额大于1就行
         Arrays.fill(dpTable, amount + 1);
 
-        // 判断0的情况
+        // 判断0的情况（初始化 base case）
         dpTable[0] = 0;
         // 这里的索引就相当于列出 amount 的所有情况 0,1,2 ... amount，然后最终通过 比如 5块钱，的最少组成个数，自底向上的方式
-        // 这个 i 相当于拆分成每个子问题，其实也是穷举，所有金额的可能性
+        // 这个 i 相当于拆分成每个子问题，其实也是穷举，所有金额的可能性（进行状态转移）
         for (int i = 0; i < dpTable.length; i++) {
             for (int coin : coins) {
                 if (i - coin < 0) {
                     continue;
                 }
                 // 求当前金额下的最少硬币数量，其实最终也是为了得到最终结果，这个就是 1 + min(dpTable[10], dpTable[9]...) 求出最小值
+                // （进行选择）
                 dpTable[i] = Math.min(dpTable[i], 1 + dpTable[i - coin]);
             }
         }
