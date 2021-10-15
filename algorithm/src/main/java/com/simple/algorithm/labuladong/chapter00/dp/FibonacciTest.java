@@ -1,4 +1,4 @@
-package com.simple.algorithm.labuladong.chapter00;
+package com.simple.algorithm.labuladong.chapter00.dp;
 
 import com.simple.algorithm.test.BaseTest;
 import org.junit.Test;
