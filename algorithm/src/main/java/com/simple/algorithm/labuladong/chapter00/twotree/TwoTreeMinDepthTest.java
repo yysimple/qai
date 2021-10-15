@@ -1,5 +1,6 @@
 package com.simple.algorithm.labuladong.chapter00.twotree;
 
+import com.simple.algorithm.labuladong.chapter00.twotree.init.TreeNodeInit;
 import com.simple.algorithm.labuladong.common.TreeNode;
 import com.simple.algorithm.test.BaseTest;
 import lombok.Data;
@@ -15,7 +16,7 @@ import java.util.Queue;
 public class TwoTreeMinDepthTest extends BaseTest {
     @Test
     public void testMinDepth() {
-        int i = minDepth(init());
+        int i = minDepth(TreeNodeInit.init1());
         System.out.println("最小深度：" + i);
     }
 
@@ -52,12 +53,5 @@ public class TwoTreeMinDepthTest extends BaseTest {
         return depth;
     }
 
-    public TreeNode<Integer> init() {
-        TreeNode<Integer> node15 = new TreeNode<>(null, null, 15);
-        TreeNode<Integer> node7 = new TreeNode<>(null, null, 7);
-        TreeNode<Integer> node20 = new TreeNode<>(node15, node7, 20);
-        TreeNode<Integer> node9 = new TreeNode<>(null, null, 9);
-        TreeNode<Integer> root = new TreeNode<>(node9, node20, 3);
-        return root;
-    }
+
 }

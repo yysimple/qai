@@ -1,5 +1,6 @@
 package com.simple.algorithm.labuladong.common;
 
+import com.simple.algorithm.labuladong.chapter00.twotree.init.TreeNodeInit;
 import com.simple.algorithm.test.BaseTest;
 import org.junit.Test;
 
@@ -46,18 +47,9 @@ public class QueueTest extends BaseTest {
     }
 
     @Test
-    public void testQueueSize(){
+    public void testQueueSize() {
         Queue<TreeNode<Integer>> queue = new LinkedList<>();
-        queue.add(init());
+        queue.add(TreeNodeInit.init1());
         System.out.println(queue.size());
-    }
-
-    public TreeNode<Integer> init() {
-        TreeNode<Integer> node15 = new TreeNode<>(null, null, 15);
-        TreeNode<Integer> node7 = new TreeNode<>(null, null, 7);
-        TreeNode<Integer> node20 = new TreeNode<>(node15, node7, 20);
-        TreeNode<Integer> node9 = new TreeNode<>(null, null, 9);
-        TreeNode<Integer> root = new TreeNode<>(node9, node20, 3);
-        return root;
     }
 }
