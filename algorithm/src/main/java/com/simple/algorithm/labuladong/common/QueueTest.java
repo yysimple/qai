@@ -44,4 +44,20 @@ public class QueueTest extends BaseTest {
         queue.offer(3);
         System.out.println(queue);
     }
+
+    @Test
+    public void testQueueSize(){
+        Queue<TreeNode<Integer>> queue = new LinkedList<>();
+        queue.add(init());
+        System.out.println(queue.size());
+    }
+
+    public TreeNode<Integer> init() {
+        TreeNode<Integer> node15 = new TreeNode<>(null, null, 15);
+        TreeNode<Integer> node7 = new TreeNode<>(null, null, 7);
+        TreeNode<Integer> node20 = new TreeNode<>(node15, node7, 20);
+        TreeNode<Integer> node9 = new TreeNode<>(null, null, 9);
+        TreeNode<Integer> root = new TreeNode<>(node9, node20, 3);
+        return root;
+    }
 }
