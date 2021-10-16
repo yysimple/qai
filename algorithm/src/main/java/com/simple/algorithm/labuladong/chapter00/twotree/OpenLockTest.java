@@ -13,6 +13,10 @@ import java.util.Set;
  */
 public class OpenLockTest {
 
+    /**
+     * 解开密码锁的最少次数
+     */
+
     @Test
     public void testOpenLock(){
         int i = openLock(new String[]{"0201", "0101", "0102", "1212", "2002"}, "0202");
