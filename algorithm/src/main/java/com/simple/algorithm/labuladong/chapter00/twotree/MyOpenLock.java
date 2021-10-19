@@ -12,7 +12,7 @@ public class MyOpenLock {
 
     @Test
     public void testMyOpenLock() {
-        int i = openLock(new String[]{"0201", "0101", "0102", "1212", "2002"}, "0202");
+        int i = openLockTwoBFS(new String[]{"0201", "0101", "0102", "1212", "2002"}, "0202");
         System.out.println(i);
     }
 
@@ -58,6 +58,56 @@ public class MyOpenLock {
                 }
             }
             step++;
+        }
+        return -1;
+    }
+
+    /**
+     * 双向队列通过bfs实现找到锁
+     *
+     * @param unLocks
+     * @param lock
+     * @return
+     */
+    public int openLockTwoBFS(String[] unLocks, String lock) {
+        // 不能碰到的死锁情况
+        Set<String> unLocksSet = new HashSet<>(Arrays.asList(unLocks));
+        // 已经出现过一次穷举
+        Set<String> alreadyLock = new HashSet<>();
+
+        // 初始化扩散队列（这里就是两个队列，如果有交集就走完该种情况）
+        Set<String> one = new HashSet<>();
+        Set<String> two = new HashSet<>();
+        one.add("0000");
+        two.add(lock);
+        int step = 0;
+        while (!one.isEmpty() && !two.isEmpty()) {
+            Set<String> tempSet = new HashSet<>();
+
+            // 还是从开始的节点进行扩散
+            for (String curr : one) {
+                if (unLocksSet.contains(curr)) {
+                    continue;
+                }
+                if (two.contains(curr)) {
+                    return step;
+                }
+                alreadyLock.add(curr);
+
+                for (int i = 0; i < 4; i++) {
+                    String up = OpenLockTest.plusOne(curr, i);
+                    if (!alreadyLock.contains(up)) {
+                        tempSet.add(up);
+                    }
+                    String down = OpenLockTest.minusOne(curr, i);
+                    if (!alreadyLock.contains(down)) {
+                        tempSet.add(down);
+                    }
+                }
+            }
+            step++;
+            one = two;
+            two = tempSet;
         }
         return -1;
     }
