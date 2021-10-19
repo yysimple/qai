@@ -1,6 +1,6 @@
 package com.simple.algorithm.labuladong.chapter00.twotree.init;
 
-import com.simple.algorithm.labuladong.common.TreeNode;
+import com.simple.algorithm.labuladong.common.model.TreeNode;
 
 /**
  * @author WuChengXing

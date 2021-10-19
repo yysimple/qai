@@ -1,6 +1,7 @@
 package com.simple.algorithm.labuladong.common;
 
 import com.simple.algorithm.labuladong.chapter00.twotree.init.TreeNodeInit;
+import com.simple.algorithm.labuladong.common.model.TreeNode;
 import com.simple.algorithm.test.BaseTest;
 import org.junit.Test;
 

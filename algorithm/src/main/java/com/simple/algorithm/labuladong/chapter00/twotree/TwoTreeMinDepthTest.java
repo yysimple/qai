@@ -1,9 +1,8 @@
 package com.simple.algorithm.labuladong.chapter00.twotree;
 
 import com.simple.algorithm.labuladong.chapter00.twotree.init.TreeNodeInit;
-import com.simple.algorithm.labuladong.common.TreeNode;
+import com.simple.algorithm.labuladong.common.model.TreeNode;
 import com.simple.algorithm.test.BaseTest;
-import lombok.Data;
 import org.junit.Test;
 
 import java.util.LinkedList;
