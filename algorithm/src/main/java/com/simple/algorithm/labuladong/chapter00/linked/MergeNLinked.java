@@ -44,17 +44,15 @@ public class MergeNLinked {
     public LinkNode<Integer> testMergeNLinked(LinkNode<Integer>[] nodes) {
         LinkNode<Integer> vHead = new LinkNode<>(null, -1);
         LinkNode<Integer> tmpHead = vHead;
-        PriorityQueue<LinkNode<Integer>> queue = new PriorityQueue<>(
-                nodes.length, Comparator.comparingInt(a -> a.val)
-        );
-        for (LinkNode<Integer> linkNode : nodes) {
-            if (linkNode != null) {
-                queue.add(linkNode);
+        PriorityQueue<LinkNode<Integer>> queue = new PriorityQueue<>(nodes.length, Comparator.comparingInt(a -> a.val));
+        for (LinkNode<Integer> node : nodes) {
+            if (node != null) {
+                queue.add(node);
             }
         }
+
         while (!queue.isEmpty()) {
             LinkNode<Integer> node = queue.poll();
-            System.out.println(node.val);
             tmpHead.next = node;
             if (node.next != null) {
                 queue.add(node.next);
