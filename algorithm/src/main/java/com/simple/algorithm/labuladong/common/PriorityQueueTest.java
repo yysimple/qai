@@ -18,11 +18,11 @@ public class PriorityQueueTest {
     public void testPriorityQueue() {
         LinkNode<Integer> l1_2 = new LinkNode<>(null, 3);
         LinkNode<Integer> l1_1 = new LinkNode<>(l1_2, 2);
-        LinkNode<Integer> l1_head = new LinkNode<>(l1_1, 1);
+        LinkNode<Integer> l1_head = new LinkNode<>(l1_1, 2);
 
         LinkNode<Integer> l2_2 = new LinkNode<>(null, 4);
         LinkNode<Integer> l2_1 = new LinkNode<>(l2_2, 2);
-        LinkNode<Integer> l2_head = new LinkNode<>(l2_1, 2);
+        LinkNode<Integer> l2_head = new LinkNode<>(l2_1, 1);
 
         List<LinkNode<Integer>> lists = new ArrayList<>();
         lists.add(l1_head);
