@@ -1,5 +1,6 @@
 package com.simple.algorithm.labuladong.chapter00.linked;
 
+import com.simple.algorithm.labuladong.chapter00.linked.init.NodeInit;
 import com.simple.algorithm.labuladong.common.model.LinkNode;
 import com.simple.algorithm.test.BaseTest;
 import org.junit.Test;
@@ -14,7 +15,7 @@ public class RemoveBottomNNode extends BaseTest {
 
     @Test
     public void test() {
-        LinkNode<Integer> linkNode = bottomNNode.initNode();
+        LinkNode<Integer> linkNode = NodeInit.initNode();
         LinkNode<Integer> linkNode1 = removeBottomNNode(linkNode, 2);
         System.out.println(linkNode1);
     }

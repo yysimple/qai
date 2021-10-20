@@ -4,6 +4,8 @@ import com.simple.algorithm.labuladong.common.model.LinkNode;
 import com.simple.algorithm.test.BaseTest;
 import org.junit.Test;
 
+import static com.simple.algorithm.labuladong.chapter00.linked.init.NodeInit.initNode;
+
 /**
  * 找到倒数第N个节点
  *
@@ -35,14 +37,5 @@ public class BottomNNode extends BaseTest {
             node1 = node1.next;
         }
         return node2;
-    }
-
-    public LinkNode<Integer> initNode() {
-        LinkNode<Integer> l2_4 = new LinkNode<>(null, 9);
-        LinkNode<Integer> l2_3 = new LinkNode<>(l2_4, 5);
-        LinkNode<Integer> l2_2 = new LinkNode<>(l2_3, 4);
-        LinkNode<Integer> l2_1 = new LinkNode<>(l2_2, 3);
-        LinkNode<Integer> l2_head = new LinkNode<>(l2_1, 1);
-        return l2_head;
     }
 }

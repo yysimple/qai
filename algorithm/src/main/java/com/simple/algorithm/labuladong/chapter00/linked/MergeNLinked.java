@@ -41,6 +41,11 @@ public class MergeNLinked {
         System.out.println(linkNode);
     }
 
+    /**
+     * 这里的核心就是使用一个有限队列，其实就是一个具有排序功能的队列
+     * @param nodes
+     * @return
+     */
     public LinkNode<Integer> testMergeNLinked(LinkNode<Integer>[] nodes) {
         LinkNode<Integer> vHead = new LinkNode<>(null, -1);
         LinkNode<Integer> tmpHead = vHead;
@@ -52,6 +57,7 @@ public class MergeNLinked {
         }
 
         while (!queue.isEmpty()) {
+            // 这里取出的会是最小的节点值
             LinkNode<Integer> node = queue.poll();
             tmpHead.next = node;
             if (node.next != null) {
