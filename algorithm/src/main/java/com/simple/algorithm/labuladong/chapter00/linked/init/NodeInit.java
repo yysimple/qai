@@ -26,4 +26,14 @@ public class NodeInit {
         LinkNode<Integer> head = new LinkNode<>(l1, 1);
         return head;
     }
+
+    public static LinkNode<Integer> initNodeCycle() {
+        LinkNode<Integer> l5 = new LinkNode<>(null, 11);
+        LinkNode<Integer> l4 = new LinkNode<>(l5, 7);
+        LinkNode<Integer> l3 = new LinkNode<>(l4, 6);
+        LinkNode<Integer> l2 = new LinkNode<>(l3, 5);
+        LinkNode<Integer> l1 = new LinkNode<>(l2, 1);
+        l5.next = l2;
+        return l1;
+    }
 }
