@@ -1,16 +1,12 @@
 package com.simple.algorithm.labuladong.common.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 /**
  * @author WuChengXing
  * @date 2021/10/19
  */
-@Getter
-@Setter
-@ToString
+@Data
 public class LinkNode<T> {
     public LinkNode<T> next;
     public T val;
@@ -26,25 +22,55 @@ public class LinkNode<T> {
         this.val = val;
     }
 
-    /*@Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(val).append("->");
-
-        StringBuilder to = to(next, this, stringBuilder);
-        String[] split = to.toString().split("->");
-        List<String> strings = Arrays.asList(split);
-        Collections.reverse(strings);
-        return StringUtils.join(strings, "->");
+    public static <T> String printNode(LinkNode<T> node) {
+        if (node == null) {
+            return "什么玩意？";
+        }
+        StringBuilder sb = new StringBuilder("[");
+        sb.append(node.val).append("->");
+        LinkNode<T> detectNode = findNode(node);
+        int step = 0;
+        if (detectNode != null) {
+            while (node.next != null) {
+                node = node.next;
+                if (node.next == detectNode) {
+                    break;
+                }
+                sb.append(node.val).append("->");
+            }
+            //return "环暂时不打印了！！";
+        }
+        while (node.next != null) {
+            node = node.next;
+            sb.append(node.val).append("->");
+        }
+        sb.append("stop");
+        return sb.append("]").toString();
     }
 
-    StringBuilder to(LinkNode<T> next, LinkNode<T> nexth, StringBuilder sb) {
-        if (next.equals(nexth)) {
-            sb.append(next.val);
-            return sb;
+    public static <T> LinkNode<T> findNode(LinkNode<T> head) {
+        if (head == null) {
+            return null;
         }
-        sb.append(next.val).append("->");
-        to(next.next, nexth, sb);
-        return sb;
-    }*/
+        LinkNode<T> fast = head;
+        LinkNode<T> slow = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) break;
+        }
+
+        if (fast == null || fast.next == null) {
+            return null;
+        }
+
+        slow = head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+
 }
