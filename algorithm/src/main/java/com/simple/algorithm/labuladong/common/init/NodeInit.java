@@ -1,4 +1,4 @@
-package com.simple.algorithm.labuladong.chapter00.linked.init;
+package com.simple.algorithm.labuladong.common.init;
 
 import com.simple.algorithm.labuladong.common.model.LinkNode;
 

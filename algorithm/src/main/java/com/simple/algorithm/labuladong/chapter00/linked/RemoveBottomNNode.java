@@ -1,6 +1,6 @@
 package com.simple.algorithm.labuladong.chapter00.linked;
 
-import com.simple.algorithm.labuladong.chapter00.linked.init.NodeInit;
+import com.simple.algorithm.labuladong.common.init.NodeInit;
 import com.simple.algorithm.labuladong.common.model.LinkNode;
 import com.simple.algorithm.test.BaseTest;
 import org.junit.Test;

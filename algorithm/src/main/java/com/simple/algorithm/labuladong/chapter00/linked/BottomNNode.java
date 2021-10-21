@@ -4,7 +4,7 @@ import com.simple.algorithm.labuladong.common.model.LinkNode;
 import com.simple.algorithm.test.BaseTest;
 import org.junit.Test;
 
-import static com.simple.algorithm.labuladong.chapter00.linked.init.NodeInit.initNode;
+import static com.simple.algorithm.labuladong.common.init.NodeInit.initNode;
 
 /**
  * 找到倒数第N个节点
