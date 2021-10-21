@@ -16,6 +16,7 @@ public class DetectCycleLinkNode extends BaseTest {
     @Test
     public void test() {
         LinkNode<Integer> linkNode = NodeInit.initNodeCycle();
+        System.out.println(linkNode);
         LinkNode<Integer> node = findNode(linkNode);
         System.out.println(node.val);
     }
