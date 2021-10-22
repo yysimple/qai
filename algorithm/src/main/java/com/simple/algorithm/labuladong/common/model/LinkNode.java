@@ -29,16 +29,8 @@ public class LinkNode<T> {
         StringBuilder sb = new StringBuilder("[");
         sb.append(node.val).append("->");
         LinkNode<T> detectNode = findNode(node);
-        int step = 0;
         if (detectNode != null) {
-            while (node.next != null) {
-                node = node.next;
-                if (node.next == detectNode) {
-                    break;
-                }
-                sb.append(node.val).append("->");
-            }
-            //return "环暂时不打印了！！";
+            return "环暂时不打印了！！";
         }
         while (node.next != null) {
             node = node.next;
