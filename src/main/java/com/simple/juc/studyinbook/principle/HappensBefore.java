@@ -10,4 +10,8 @@ public class HappensBefore {
         a = b + c;
         d = e - f;
     }
+
+    public void testHappensBefore() {
+
+    }
 }
