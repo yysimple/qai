@@ -12,10 +12,23 @@ import org.junit.Test;
 public class KGroupReverseLinked extends BaseTest {
     @Test
     public void test() {
-
+        System.out.println(LinkNode.printNode(testKGroupReverseLinked(NodeInit.initNodeSort(), 2)));
     }
 
     public LinkNode<Integer> testKGroupReverseLinked(LinkNode<Integer> head, int k) {
-        return null;
+        LinkNode<Integer> a = head, b = head;
+        if (head == null) {
+            return null;
+        }
+        for (int i = 0; i < k; i++) {
+            // 后面如果不足K个节点，就直接返回原链表
+            if (b == null) {
+                return head;
+            }
+            b = b.next;
+        }
+        LinkNode<Integer> newNode = PartNodeReverse.partNodeReverse(a, b);
+        a.next = testKGroupReverseLinked(b, k);
+        return newNode;
     }
 }

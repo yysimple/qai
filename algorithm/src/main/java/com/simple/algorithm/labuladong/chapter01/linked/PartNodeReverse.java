@@ -12,7 +12,7 @@ public class PartNodeReverse {
 
     @Test
     public void test() {
-        System.out.println(LinkNode.printNode(allNodeReverse(NodeInit.initNodeSort(), NodeInit.initNodeSort().next.next)));
+        System.out.println(LinkNode.printNode(partNodeReverse(NodeInit.initNodeSort(), NodeInit.initNodeSort().next.next)));
     }
 
     /**
@@ -20,7 +20,7 @@ public class PartNodeReverse {
      *
      * @param a
      */
-    public LinkNode<Integer> allNodeReverse(LinkNode<Integer> a, LinkNode<Integer> b) {
+    public static LinkNode<Integer> partNodeReverse(LinkNode<Integer> a, LinkNode<Integer> b) {
         LinkNode<Integer> curr = a, nxt = a, pre = null;
         while (!curr.val.equals(b.val)) {
             nxt = curr.next;
