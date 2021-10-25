@@ -36,4 +36,13 @@ public class NodeInit {
         l5.next = l2;
         return l1;
     }
+
+    public static LinkNode<Integer> initNodeSort() {
+        LinkNode<Integer> l4 = new LinkNode<>(null, 5);
+        LinkNode<Integer> l3 = new LinkNode<>(l4, 4);
+        LinkNode<Integer> l2 = new LinkNode<>(l3, 3);
+        LinkNode<Integer> l1 = new LinkNode<>(l2, 2);
+        LinkNode<Integer> head = new LinkNode<>(l1, 1);
+        return head;
+    }
 }

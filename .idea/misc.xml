@@ -7,12 +7,12 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/pagination-simple-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/pagetest/pom.xml" />
         <option value="$PROJECT_DIR$/simple-common-utils/pom.xml" />
         <option value="$PROJECT_DIR$/algorithm/pom.xml" />
         <option value="$PROJECT_DIR$/ocr/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>

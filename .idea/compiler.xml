@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="com.simple.pagetest" />
         <module name="question-study-improve" />
+        <module name="weather" />
         <module name="simple-common-utils" />
         <module name="pagetest" />
         <module name="pagination-simple-boot-starter" />
@@ -24,6 +25,7 @@
       <module name="pagination-simple-boot-starter" target="1.8" />
       <module name="question-study-improve" target="1.8" />
       <module name="simple-common-utils" target="8" />
+      <module name="weather" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -34,6 +36,7 @@
       <module name="pagetest" options="-parameters" />
       <module name="pagination-simple-boot-starter" options="-parameters" />
       <module name="question-study-improve" options="-parameters" />
+      <module name="weather" options="-parameters" />
     </option>
   </component>
 </project>
