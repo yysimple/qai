@@ -45,4 +45,14 @@ public class NodeInit {
         LinkNode<Integer> head = new LinkNode<>(l1, 1);
         return head;
     }
+
+    public static LinkNode<Integer> initNodePalindrome() {
+        LinkNode<Integer> l5 = new LinkNode<>(null, 1);
+        LinkNode<Integer> l4 = new LinkNode<>(l5, 2);
+        LinkNode<Integer> l3 = new LinkNode<>(l4, 3);
+        LinkNode<Integer> l2 = new LinkNode<>(l3, 3);
+        LinkNode<Integer> l1 = new LinkNode<>(l2, 2);
+        LinkNode<Integer> head = new LinkNode<>(l1, 1);
+        return head;
+    }
 }
