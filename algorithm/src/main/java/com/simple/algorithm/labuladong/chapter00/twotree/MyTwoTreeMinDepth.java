@@ -18,17 +18,17 @@ public class MyTwoTreeMinDepth {
         System.out.println(minDepth(TreeNodeInit.init1()));
     }
 
-    public int minDepth(TreeNode<Integer> root) {
+    public int minDepth(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        Queue<TreeNode<Integer>> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         int depth = 1;
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                TreeNode<Integer> curr = queue.poll();
+                TreeNode curr = queue.poll();
                 if (curr.getLeft() == null && curr.getRight() == null) {
                     return depth;
                 }

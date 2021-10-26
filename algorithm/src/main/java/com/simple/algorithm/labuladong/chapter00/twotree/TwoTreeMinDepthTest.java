@@ -25,9 +25,9 @@ public class TwoTreeMinDepthTest extends BaseTest {
      * @param root
      * @return
      */
-    public int minDepth(TreeNode<Integer> root) {
+    public int minDepth(TreeNode root) {
         if (root == null) return 0;
-        Queue<TreeNode<Integer>> q = new LinkedList<>();
+        Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
         // root 本身就是一层，depth 初始化为 1
         int depth = 1;
@@ -36,7 +36,7 @@ public class TwoTreeMinDepthTest extends BaseTest {
             int sz = q.size();
             /* 将当前队列中的所有节点向四周扩散 */
             for (int i = 0; i < sz; i++) {
-                TreeNode<Integer> cur = q.poll();
+                TreeNode cur = q.poll();
                 /* 判断是否到达终点 */
                 if (cur.getLeft() == null && cur.getRight() == null)
                     return depth;

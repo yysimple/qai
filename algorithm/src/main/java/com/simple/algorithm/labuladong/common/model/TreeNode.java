@@ -9,10 +9,11 @@ import lombok.Data;
  * @date 2021/10/15
  */
 @Data
-public class TreeNode<T> {
-    public TreeNode<T> left;
-    public TreeNode<T> right;
-    public T val;
+public class TreeNode {
+    public TreeNode next;
+    public TreeNode left;
+    public TreeNode right;
+    public int val;
 
     /**
      * 适用于树结构，双向链表
@@ -21,7 +22,7 @@ public class TreeNode<T> {
      * @param right
      * @param val
      */
-    public TreeNode(TreeNode<T> left, TreeNode<T> right, T val) {
+    public TreeNode(TreeNode left, TreeNode right, int val) {
         this.left = left;
         this.right = right;
         this.val = val;
@@ -33,7 +34,7 @@ public class TreeNode<T> {
      * @param right
      * @param val
      */
-    public TreeNode(TreeNode<T> right, T val) {
+    public TreeNode(TreeNode right, int val) {
         this.right = right;
         this.val = val;
     }

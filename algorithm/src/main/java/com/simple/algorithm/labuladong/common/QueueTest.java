@@ -49,7 +49,7 @@ public class QueueTest extends BaseTest {
 
     @Test
     public void testQueueSize() {
-        Queue<TreeNode<Integer>> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(TreeNodeInit.init1());
         System.out.println(queue.size());
     }
