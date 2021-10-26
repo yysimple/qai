@@ -38,4 +38,21 @@ public class TreeNode {
         this.right = right;
         this.val = val;
     }
+
+    static StringBuilder sb = new StringBuilder("start->");
+
+    /**
+     * 前序遍历，left -> right 的形式
+     * @param root
+     * @return
+     */
+    public static String printTree(TreeNode root) {
+        if (root == null) {
+            return "";
+        }
+        sb.append(root.val).append("->");
+        printTree(root.left);
+        printTree(root.right);
+        return sb.toString();
+    }
 }
