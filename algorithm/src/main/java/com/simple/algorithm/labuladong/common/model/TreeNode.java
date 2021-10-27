@@ -28,6 +28,10 @@ public class TreeNode {
         this.val = val;
     }
 
+    public TreeNode(int val) {
+        this.val = val;
+    }
+
     /**
      * 单向链表
      *
