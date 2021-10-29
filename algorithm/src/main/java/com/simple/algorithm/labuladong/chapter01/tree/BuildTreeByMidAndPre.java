@@ -27,14 +27,14 @@ public class BuildTreeByMidAndPre {
         int rootValue = pre[preStart];
         // 用判断mid的root的索引
         int index = 0;
-        for (int i = 0; i <= midEnd; i++) {
+        for (int i = midStart; i <= midEnd; i++) {
             if (mid[i] == rootValue) {
                 index = i;
                 break;
             }
         }
         // 前序遍历的左节点个数
-        int leftSize = index - preStart;
+        int leftSize = index - midStart;
 
         TreeNode root = new TreeNode(rootValue);
         // 因为不加 root 所以 pre的位置 + 1，mid的不加，但是最后邻近root 所以 -1
