@@ -5,6 +5,8 @@ import com.simple.util.FunctionUtil;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.*;
 
 /**
@@ -14,6 +16,13 @@ import java.util.function.*;
 public class BaseFunctionTest<T, U, R> extends BaseTest {
 
     @Test
+    public void functionTest() {
+        Function<Integer, String> function = param -> String.valueOf((param * 2));
+        String applyRes = function.apply(10);
+        System.out.println(applyRes);
+    }
+
+    @Test
     public void predicateTest() {
         Predicate<Integer> bool = x -> x > 5;
         System.out.println(bool.test(5));
@@ -21,14 +30,13 @@ public class BaseFunctionTest<T, U, R> extends BaseTest {
 
     @Test
     public void consumerTest() {
-        Consumer<Long> consumer = x -> System.out.println(x);
+        Consumer<Long> consumer = System.out::println;
         consumer.accept(1L);
     }
 
     @Test
     public void supplierTest() {
         Supplier<Integer> supplier = () -> 1 + 1 >> 1 + 1;
-        System.out.println(1 + 1 >> 1 + 1);
         System.out.println(supplier.get());
     }
 
@@ -40,12 +48,16 @@ public class BaseFunctionTest<T, U, R> extends BaseTest {
 
     @Test
     public void nonNullAndIsNumber() {
+        List<String> names = new ArrayList<>();
         FunctionUtil.whenNonNullDo(x -> System.out.println(x.getClass().getTypeName() + ", values: " + x), 1);
         FunctionUtil.whenNonNullDo(x -> System.out.println(x.getClass().getTypeName() + ", values: " + x), 1L);
         FunctionUtil.whenNonNullDo(x -> System.out.println(x.getClass().getTypeName() + ", values: " + x), new BigDecimal(1));
-        FunctionUtil.whenNonNullDo(System.out::println, null);
-        FunctionUtil.whenNonNullDo(x -> System.out.println(x.getClass().getTypeName() + ", values: " + x), "1");
-        System.out.println((Object) null);
+        String name = " ";
+        String name1 = "1";
+        names.add(name);
+        names.add(name1);
+        FunctionUtil.whenNonNullDo(n -> names.add(n), "");
+        System.out.println(names);
     }
 
     @Test
