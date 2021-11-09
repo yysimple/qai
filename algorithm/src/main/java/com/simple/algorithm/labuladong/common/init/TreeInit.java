@@ -53,7 +53,7 @@ public class TreeInit {
         return root;
     }
 
-    public static TreeNode init2(){
+    public static TreeNode init2() {
         TreeNode r1r2 = new TreeNode(null, null, 6);
         TreeNode r1l2 = new TreeNode(null, null, 4);
         TreeNode r1r = new TreeNode(r1l2, r1r2, 5);
@@ -62,6 +62,14 @@ public class TreeInit {
         TreeNode l1r = new TreeNode(null, null, 4);
         TreeNode l1l = new TreeNode(null, null, 2);
         TreeNode l1 = new TreeNode(l1l, l1r, 4);
+        TreeNode root = new TreeNode(l1, r1, 1);
+        return root;
+    }
+
+    public static TreeNode initSerialize() {
+        TreeNode r1 = new TreeNode(null, null, 3);
+        TreeNode l1r = new TreeNode(null, null, 4);
+        TreeNode l1 = new TreeNode(null, l1r, 2);
         TreeNode root = new TreeNode(l1, r1, 1);
         return root;
     }

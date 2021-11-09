@@ -47,16 +47,22 @@ public class TreeNode {
 
     /**
      * 前序遍历，left -> right 的形式
+     *
      * @param root
      * @return
      */
     public static String printTree(TreeNode root) {
+        traverseFront(root);
+        sb.append("stop");
+        return sb.toString();
+    }
+
+    public static void traverseFront(TreeNode root) {
         if (root == null) {
-            return "";
+            return;
         }
         sb.append(root.val).append("->");
-        printTree(root.left);
-        printTree(root.right);
-        return sb.toString();
+        traverseFront(root.left);
+        traverseFront(root.right);
     }
 }
