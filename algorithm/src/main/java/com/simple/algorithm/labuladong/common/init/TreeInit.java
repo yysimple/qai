@@ -87,5 +87,15 @@ public class TreeInit {
         TreeNode root = new TreeNode(l1, r1, 3);
         return root;
     }
+
+    public static TreeNode initFullTree() {
+        TreeNode r1l = new TreeNode(null, null, 6);
+        TreeNode r1 = new TreeNode(r1l, null, 3);
+        TreeNode l1r = new TreeNode(null, null, 5);
+        TreeNode l1l = new TreeNode(null, null, 4);
+        TreeNode l1 = new TreeNode(l1l, l1r, 2);
+        TreeNode root = new TreeNode(l1, r1, 1);
+        return root;
+    }
 }
 
