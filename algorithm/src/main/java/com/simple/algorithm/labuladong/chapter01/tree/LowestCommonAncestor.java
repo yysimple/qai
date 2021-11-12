@@ -1,5 +1,6 @@
 package com.simple.algorithm.labuladong.chapter01.tree;
 
+import com.simple.algorithm.labuladong.common.init.TreeInit;
 import com.simple.algorithm.labuladong.common.model.TreeNode;
 import com.simple.algorithm.test.BaseTest;
 import org.junit.Test;
@@ -12,7 +13,8 @@ public class LowestCommonAncestor extends BaseTest {
 
     @Test
     public void test() {
-
+        TreeNode treeNode = TreeInit.initAncestor();
+        System.out.println(testLowestCommonAncestor(treeNode, treeNode.left, treeNode.right).getVal());
     }
 
     /**

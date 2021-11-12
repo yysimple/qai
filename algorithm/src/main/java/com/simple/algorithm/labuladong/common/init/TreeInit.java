@@ -73,5 +73,19 @@ public class TreeInit {
         TreeNode root = new TreeNode(l1, r1, 1);
         return root;
     }
+
+    public static TreeNode initAncestor() {
+        TreeNode r1r2 = new TreeNode(null, null, 9);
+        TreeNode r1r = new TreeNode(null, null, 8);
+        TreeNode r1l = new TreeNode(null, null, 0);
+        TreeNode r1 = new TreeNode(r1l, r1r, 1);
+        TreeNode l1r2r = new TreeNode(null, null, 4);
+        TreeNode l1l2r = new TreeNode(null, null, 7);
+        TreeNode l1r = new TreeNode(l1l2r, l1r2r, 2);
+        TreeNode l1l = new TreeNode(null, null, 6);
+        TreeNode l1 = new TreeNode(l1l, l1r, 5);
+        TreeNode root = new TreeNode(l1, r1, 3);
+        return root;
+    }
 }
 
