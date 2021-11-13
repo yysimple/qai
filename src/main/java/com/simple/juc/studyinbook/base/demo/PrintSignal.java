@@ -15,7 +15,7 @@ public class PrintSignal {
         @SneakyThrows
         @Override
         public void run() {
-            while (signal < 10) {
+            while (signal < 1000) {
                 if (signal % 3 == 1) {
                     System.out.println("A-线程,signal=" + signal);
                     signal++;
@@ -30,7 +30,7 @@ public class PrintSignal {
 
         @Override
         public void run() {
-            while (signal < 10) {
+            while (signal < 1000) {
                 if (signal % 3 == 2) {
                     System.out.println("B-线程,signal=" + signal);
                     signal++;
@@ -43,7 +43,7 @@ public class PrintSignal {
 
         @Override
         public void run() {
-            while (signal < 10) {
+            while (signal < 1000) {
                 if (signal % 3 == 0) {
                     System.out.println("C-线程,signal=" + signal);
                     signal++;

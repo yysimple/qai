@@ -14,7 +14,7 @@ public class WaitAndNotify {
                 for (int i = 1; i <= 5; i++) {
                     try {
                         System.out.println("ThreadA: " + i);
-                        // 这里会进入等待状态，但是不会释放锁
+                        // 这里会进入等待状态，但是不会释放锁，这里会去唤醒那些正在等待的线程，让他们参与资源竞争
                         lock.notify();
                         Thread.sleep(1000);
                         System.out.println("A 通知 B");
