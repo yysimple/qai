@@ -6,7 +6,6 @@ package com.simple.juc.studyinbook.principle;
  *  2. 如果第二个操作是volatile写，那无论第一个操作是什么，都不能重排序； 2write 1no
  *  3. 如果第一个操作是volatile写，第二个操作是volatile读，那不能重排序。1write 2read 前后no
  *
- * @author WuChengXing
  * @date 2021/10/22
  */
 public class VolatileExample {
@@ -27,6 +26,7 @@ public class VolatileExample {
     public void reader() throws InterruptedException {
         if (flag) { // step 3
             System.out.println(a); // step 4
+            System.out.println(Thread.currentThread().getName());
         }
     }
 
@@ -39,7 +39,7 @@ public class VolatileExample {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }).start();
+        }, "Thread-A").start();
 
         new Thread(() -> {
             try {
@@ -47,7 +47,7 @@ public class VolatileExample {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }).start();
+        }, "Thread-B").start();
 
     }
 }
