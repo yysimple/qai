@@ -49,4 +49,49 @@ public class ArrayListView {
         long end = System.currentTimeMillis();
         System.out.println("添加集合构造器：" + (end - start));
     }
+
+    @Test
+    public void testIndexOf() {
+        ArrayList<Integer> arrayList = new ArrayList<>(8);
+        arrayList.add(1);
+        arrayList.add(2);
+        arrayList.add(null);
+        arrayList.add(3);
+        long start = System.currentTimeMillis();
+        int i = arrayList.indexOf(null);
+        System.out.println(i);
+        long end = System.currentTimeMillis();
+        System.out.println("初始化容量构造器：" + (end - start));
+    }
+
+    @Test
+    public void cloneTest() {
+        ArrayList<Integer> arrayList = new ArrayList<>(8);
+        arrayList.add(1);
+        // [1]
+        System.out.println(arrayList);
+
+        Object clone = arrayList.clone();
+        arrayList.clear();
+        // [1]
+        System.out.println(clone);
+        // []
+        System.out.println(arrayList);
+    }
+
+    @Test
+    public void toArrayTest() {
+        ArrayList<Integer> arrayList = new ArrayList<>(8);
+        arrayList.add(1);
+        Object[] objects = arrayList.toArray();
+        System.out.println(objects.length);
+    }
+
+    @Test
+    public void toArgArrayTest() {
+        ArrayList<String> arrayList = new ArrayList<>(8);
+        arrayList.add("1");
+        String[] strings = arrayList.toArray(new String[arrayList.size()]);
+        System.out.println(strings.length);
+    }
 }
