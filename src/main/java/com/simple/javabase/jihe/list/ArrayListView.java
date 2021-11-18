@@ -3,8 +3,6 @@ package com.simple.javabase.jihe.list;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @author WuChengXing
@@ -12,22 +10,43 @@ import java.util.Set;
  */
 public class ArrayListView {
 
+    int opeNum = 1000 * 10000;
+
     @Test
-    public void test() {
-        /**
-         * 无参构造器：this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
-         * this.elementData --> transient Object[] elementData;
-         * DEFAULTCAPACITY_EMPTY_ELEMENTDATA --> private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
-         *
-         * 这里可以发现是没有去初始化所谓的 10 的默认容量？然后源码里面没了？
-         *
-         *
-         *
-         */
+    public void testNoArg() {
+        long start = System.currentTimeMillis();
         ArrayList<Integer> arrayList = new ArrayList<>();
-        ArrayList<Integer> initCapacity = new ArrayList<>(10);
-        ArrayList<Integer> initCapacity2 = new ArrayList<>(8);
-        Set<Integer> set = new HashSet<>(4);
-        ArrayList<Integer> initOtherC = new ArrayList<>(set);
+        for (int i = 0; i < opeNum; i++) {
+            arrayList.add(i);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("无参构造器：" + (end - start));
+    }
+
+    @Test
+    public void testHasArg() {
+        long start = System.currentTimeMillis();
+        ArrayList<Integer> arrayList = new ArrayList<>(8);
+        for (int i = 0; i < opeNum; i++) {
+            arrayList.add(i);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("初始化容量构造器：" + (end - start));
+    }
+
+    ArrayList<Integer> add = new ArrayList<>();
+
+    @Test
+    public void testAddList() {
+        add.add(1);
+        add.add(2);
+        add.add(3);
+        long start = System.currentTimeMillis();
+        ArrayList<Integer> arrayList = new ArrayList<>(add);
+        for (int i = 0; i < opeNum; i++) {
+            arrayList.add(i);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("添加集合构造器：" + (end - start));
     }
 }
