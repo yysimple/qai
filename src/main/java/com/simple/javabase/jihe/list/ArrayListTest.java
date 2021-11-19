@@ -3,6 +3,7 @@ package com.simple.javabase.jihe.list;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * @author WuChengXing
@@ -77,6 +78,15 @@ public class ArrayListTest {
         ArrayList<Integer> a = new ArrayList<>();
         a.add(1);
         System.out.println(a.size());
+    }
+
+    @Test
+    public void clearTest(){
+        ArrayList<Integer> a = new ArrayList<>();
+        a.add(1);
+        a.clear();
+        System.out.println(a.size());
+        System.out.println(Objects.isNull(a));
     }
 
 }
