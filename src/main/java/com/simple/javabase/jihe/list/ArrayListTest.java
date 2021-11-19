@@ -72,4 +72,11 @@ public class ArrayListTest {
         System.out.println(strings.length);
     }
 
+    @Test
+    public void addTest(){
+        ArrayList<Integer> a = new ArrayList<>();
+        a.add(1);
+        System.out.println(a.size());
+    }
+
 }
