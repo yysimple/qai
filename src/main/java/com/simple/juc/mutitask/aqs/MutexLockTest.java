@@ -8,9 +8,9 @@ import java.util.Date;
  * @author: WuChengXing
  * @create: 2021-11-22 23:26
  **/
-public class MyLockTest {
+public class MutexLockTest {
     public static void main(String[] args) {
-        MyLock lock = new MyLock();
+        MutexLock lock = new MutexLock();
         new Thread(() -> {
             lock.lock();
             try {

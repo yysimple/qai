@@ -13,7 +13,7 @@ import java.util.concurrent.locks.Lock;
  * @author: WuChengXing
  * @create: 2021-11-22 23:23
  **/
-public class MyLock implements Lock, Serializable {
+public class MutexLock implements Lock, Serializable {
 
     private static final Sync sync = new Sync();
 
