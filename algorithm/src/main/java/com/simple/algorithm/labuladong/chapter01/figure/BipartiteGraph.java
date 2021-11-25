@@ -2,6 +2,9 @@ package com.simple.algorithm.labuladong.chapter01.figure;
 
 import org.junit.Test;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 功能描述:
  *
@@ -26,9 +29,15 @@ public class BipartiteGraph {
     boolean[] color;
 
     @Test
-    public void test() {
+    public void testDFS() {
         int[][] ints = buildGraph();
         System.out.println(isBipartiteDFS(ints));
+    }
+
+    @Test
+    public void testBFS() {
+        int[][] ints = buildGraph();
+        System.out.println(isBipartiteBFS(ints));
     }
 
 
@@ -71,6 +80,44 @@ public class BipartiteGraph {
                 }
             }
         }
+    }
+
+    public boolean isBipartiteBFS(int[][] graph) {
+        int length = graph.length;
+        visited = new boolean[length];
+        color = new boolean[length];
+        for (int i = 0; i < length; i++) {
+            if (!visited[i]) {
+                traverseBFS(graph, i);
+            }
+        }
+        return isOk;
+    }
+
+    private void traverseBFS(int[][] graph, int node) {
+        Queue<Integer> queue = new LinkedList<>();
+        visited[node] = true;
+        // 将传进来的节点放入到队列
+        queue.offer(node);
+
+        while (!queue.isEmpty() && isOk) {
+            // 这里的 poll 元素成了那个要对比的节点
+            Integer poll = queue.poll();
+            // 取出相邻的节点
+            for (int neighbor : graph[poll]) {
+                // 如果没有访问过，则赋值颜色，继续左右走
+                if (!visited[neighbor]) {
+                    color[neighbor] = !color[poll];
+                    visited[neighbor] = true;
+                    queue.offer(neighbor);
+                } else {
+                    if (color[neighbor] == color[poll]) {
+                        isOk = false;
+                    }
+                }
+            }
+        }
+
     }
 
     /**
