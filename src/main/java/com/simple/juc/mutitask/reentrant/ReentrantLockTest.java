@@ -1,4 +1,4 @@
-package com.simple.juc.mutitask;
+package com.simple.juc.mutitask.reentrant;
 
 import org.junit.Test;
 
