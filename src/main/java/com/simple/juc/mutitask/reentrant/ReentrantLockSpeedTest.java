@@ -32,13 +32,17 @@ public class ReentrantLockSpeedTest {
             public void run() {
                 for (int i = 0; i < 2; i++) {
                     lock.lock();
+                    // 这里打印线程名 + 最后的等待队列
                     System.out.println("locked by " + currentThread().getName() + ", waiting by " + lock.getQueueThreads());
                     lock.unlock();
                 }
             }
         }
 
-        private static class Sync extends ReentrantLock {
+    /**
+     * 这里定义一个sync同步器去继承ReentrantLock，然后通过使用父类构造器传入对应的公平或者非公平的标识
+     */
+    private static class Sync extends ReentrantLock {
             public Sync(boolean fair) {
                 super(fair);
             }
@@ -48,18 +52,16 @@ public class ReentrantLockSpeedTest {
              * @return
              */
             public List<String> getQueueThreads() {
-                List<Thread> arrayList = new ArrayList<Thread>(super. getQueuedThreads());
+                List<Thread> arrayList = new ArrayList<>(super.getQueuedThreads());
                 Collections.reverse(arrayList);
                 List<String> list = new ArrayList<>();
-                arrayList.forEach(el -> {
-                    list.add(el.getName());
-                });
+                arrayList.forEach(el -> list.add(el.getName()));
                 return list;
             }
         }
 
         public static void main(String[] args) {
-            // testLock(fairLock);
+//             testLock(fairLock);
              testLock(noFairLock);
         }
 
