@@ -14,15 +14,21 @@ public class ConditionTest {
     final Lock lock = new ReentrantLock();
     final Condition condition = lock.newCondition();
 
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        ConditionTest test = new ConditionTest();
+    public static void main(String[] args) throws InterruptedException {
+        /*ConditionTest test = new ConditionTest();
         Producer producer = test.new Producer();
         Consumer consumer = test.new Consumer();
-
-
         consumer.start();
-        producer.start();
+        producer.start();*/
+        BoundedQueue<Integer> boundedQueue = new BoundedQueue<>(2);
+        new Thread(() -> {
+            boundedQueue.add(1);
+            boundedQueue.add(2);
+            boundedQueue.add(3);
+        }).start();
+        Thread.sleep(100);
+        System.out.println(boundedQueue.removeFromHead());
+
     }
 
     class Consumer extends Thread {
