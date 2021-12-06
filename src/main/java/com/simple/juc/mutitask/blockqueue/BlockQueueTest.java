@@ -1,9 +1,6 @@
 package com.simple.juc.mutitask.blockqueue;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.DelayQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.*;
 
 /**
  * 功能描述: 阻塞队列的实现
@@ -17,5 +14,6 @@ public class BlockQueueTest {
         LinkedBlockingQueue linkedBlockingQueue = new LinkedBlockingQueue();
         PriorityBlockingQueue priorityBlockingQueue = new PriorityBlockingQueue();
         DelayQueue delayQueue = new DelayQueue();
+        SynchronousQueue synchronousQueue = new SynchronousQueue();
     }
 }

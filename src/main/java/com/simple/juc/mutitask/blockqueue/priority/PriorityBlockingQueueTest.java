@@ -1,4 +1,4 @@
-package com.simple.juc.mutitask.blockqueue;
+package com.simple.juc.mutitask.blockqueue.priority;
 
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -6,7 +6,7 @@ import java.util.concurrent.PriorityBlockingQueue;
  * 功能描述:
  *
  * @author: WuChengXing
- * @create: 2021-12-06 10:00
+ * @create: 2021-12-06 12:38
  **/
 public class PriorityBlockingQueueTest {
     public static void main(String[] args) throws InterruptedException {

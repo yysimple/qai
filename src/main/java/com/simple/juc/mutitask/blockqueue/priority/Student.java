@@ -1,4 +1,4 @@
-package com.simple.juc.mutitask.blockqueue;
+package com.simple.juc.mutitask.blockqueue.priority;
 
 import lombok.Data;
 
