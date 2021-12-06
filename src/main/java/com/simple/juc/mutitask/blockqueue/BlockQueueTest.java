@@ -1,6 +1,7 @@
 package com.simple.juc.mutitask.blockqueue;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.DelayQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -15,5 +16,6 @@ public class BlockQueueTest {
         ArrayBlockingQueue arrayBlockingQueue = new ArrayBlockingQueue(5);
         LinkedBlockingQueue linkedBlockingQueue = new LinkedBlockingQueue();
         PriorityBlockingQueue priorityBlockingQueue = new PriorityBlockingQueue();
+        DelayQueue delayQueue = new DelayQueue();
     }
 }
