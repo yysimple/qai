@@ -15,5 +15,7 @@ public class BlockQueueTest {
         PriorityBlockingQueue priorityBlockingQueue = new PriorityBlockingQueue();
         DelayQueue delayQueue = new DelayQueue();
         SynchronousQueue synchronousQueue = new SynchronousQueue();
+        LinkedTransferQueue linkedTransferQueue = new LinkedTransferQueue();
+        LinkedBlockingDeque linkedBlockingDeque = new LinkedBlockingDeque();
     }
 }
