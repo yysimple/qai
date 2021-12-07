@@ -1,5 +1,8 @@
 package com.simple.juc.mutitask.container;
 
+import com.simple.juc.mutitask.blockqueue.priority.Student;
+import org.junit.Test;
+
 /**
  * 功能描述: '
  *
@@ -16,5 +19,23 @@ public class ForTest {
             a++;
             Thread.sleep(1000);
         }
+    }
+
+    @Test
+    public void updateTest() {
+        Student student = new Student("zs", 123);
+        Student a, b;
+        b = student;
+        a = b;
+        System.out.println("a:" + a);
+        System.out.println("b:" + b);
+        a.setName("jjjj");
+        System.out.println("a:" + a);
+        System.out.println("b:" + b);
+        b.setName("xxxx");
+        System.out.println("a:" + a);
+        System.out.println("b:" + b);
+
+
     }
 }

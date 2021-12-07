@@ -19,6 +19,7 @@ public class ConcurrentLinkedQueueTest {
         queue.poll();
         queue.poll();
         queue.poll();
+        queue.offer("D");
         System.out.println("==== 结束 ====");
     }
 }
