@@ -13,12 +13,9 @@ import java.util.concurrent.Future;
  * @create: 2021-12-09 11:27
  **/
 public class ForkJoinTaskDemo {
-    public static void main(String[] args) {
 
-    }
-
-    public static final Integer START_NUM = 1;
-    public static final Integer END_NUM = 100 * 10000;
+    public static final Long START_NUM = 1L;
+    public static final Long END_NUM = 2000 * 10000L;
 
     @Test
     public void testForkJoin() {
@@ -27,7 +24,7 @@ public class ForkJoinTaskDemo {
         // 生成一个计算任务，负责计算 1~n
         CountTask counterForkJoin = new CountTask(START_NUM, END_NUM);
         // 执行一个任务
-        Future<Integer> result = forkJoinPool.submit(counterForkJoin);
+        Future<Long> result = forkJoinPool.submit(counterForkJoin);
         try {
             System.out.println(result.get());
             long end = System.currentTimeMillis();
@@ -45,9 +42,9 @@ public class ForkJoinTaskDemo {
         System.out.println("总共耗时：" + (end - start));
     }
 
-    private Integer countNum(Integer start, Integer end) {
-        Integer res = 0;
-        for (int i = start; i <= end; i++) {
+    private Long countNum(Long start, Long end) {
+        long res = 0L;
+        for (Long i = start; i <= end; i++) {
             res += i;
         }
         return res;
