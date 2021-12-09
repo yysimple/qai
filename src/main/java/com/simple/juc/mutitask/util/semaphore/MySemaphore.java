@@ -1,4 +1,4 @@
-package com.simple.juc.mutitask.util;
+package com.simple.juc.mutitask.util.semaphore;
 
 /**
  * 功能描述: 自己实现信号锁

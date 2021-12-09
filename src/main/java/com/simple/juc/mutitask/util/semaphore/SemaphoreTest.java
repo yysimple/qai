@@ -1,4 +1,4 @@
-package com.simple.juc.mutitask.util;
+package com.simple.juc.mutitask.util.semaphore;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,6 +14,8 @@ import java.util.concurrent.Semaphore;
 public class SemaphoreTest {
     // 假设还有两辆车
     private static Semaphore bicycles = new Semaphore(2);
+//    private static BaseAQSSemaphore bicycles = new BaseAQSSemaphore(2);
+
 
     public static void main(String[] args) {
         Runnable runnable = () -> {
