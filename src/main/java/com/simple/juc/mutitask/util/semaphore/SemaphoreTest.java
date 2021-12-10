@@ -13,8 +13,9 @@ import java.util.concurrent.Semaphore;
 @Slf4j
 public class SemaphoreTest {
     // 假设还有两辆车
-    private static Semaphore bicycles = new Semaphore(2);
+//    private static Semaphore bicycles = new Semaphore(2);
 //    private static BaseAQSSemaphore bicycles = new BaseAQSSemaphore(2);
+    private static MySemaphore bicycles = new MySemaphore(2);
 
 
     public static void main(String[] args) {
