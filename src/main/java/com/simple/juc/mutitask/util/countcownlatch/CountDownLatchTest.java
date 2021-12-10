@@ -14,7 +14,9 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
  **/
 public class CountDownLatchTest {
 
-    CountDownLatch count = new CountDownLatch(1);
+//    CountDownLatch count = new CountDownLatch(1);
+//    MyCountDownLatch count = new MyCountDownLatch(3);
+    BaseAQSImplCDL count = new BaseAQSImplCDL(3);
 
     @Test
     public void testOne() throws InterruptedException {
