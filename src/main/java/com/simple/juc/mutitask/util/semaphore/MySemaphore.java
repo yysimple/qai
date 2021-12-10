@@ -55,7 +55,12 @@ public class MySemaphore {
     }
 
     /**
-     * 阻塞获取锁的方法
+     * 阻塞获取锁的方法：
+     * 1. 自旋
+     * 2. 判断资源是否充足：不充足
+     *      2.1. 资源不足时，将当前线程放入到队列中，并再次判断是否存在资源，还是不存在则挂起当前线程
+     *      2.2 如何挂起阶段突然被中断，那么直接跑出中断异常
+     * 3. 资源充足的情况下，原子交换，拿到资源，跳出自旋
      */
     public void acquire() throws InterruptedException {
         // 自旋尝试去获取锁
@@ -112,6 +117,9 @@ public class MySemaphore {
         }
     }
 
+    /**
+     * 释放资源：这里稍许不一样，就是将，队首线程唤醒，需要做这个操作
+     */
     public void release() {
         for (; ; ) {
             int available = permits;
