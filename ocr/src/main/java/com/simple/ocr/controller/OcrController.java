@@ -1,9 +1,6 @@
 package com.simple.ocr.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
@@ -71,6 +68,29 @@ public class OcrController {
             }
         }
         return null;
+    }
+
+    /**
+     * debug形式，解析一下该过程：
+     * 1. 首先是http请求过来，由于我是再内网还是再本机的情况，所以网络没有那么复杂，走的是lo回环，也存在tcp
+     * 具体的就是网络的知识点，可以参考：https://www.zhihu.com/question/43590414；然后就是通过软件驱动（依旧是网络层）
+     * 然后拿到对应的http信息的封装（这里就是Servlet的操作），再spring中，使用的是HttpServlet来接收信息
+     * -
+     * 2. 我们这里就从HttpServlet开始，从java的网络处理中，最后封装成servlet 之后会调用 HttpServlet中的service();
+     *
+     *
+     * @return
+     */
+    @GetMapping("/testMvc")
+    public String testMvc() {
+        System.out.println("我被调用了...");
+        return "testMvc";
+    }
+
+    @GetMapping("/testMvcHasParam")
+    public String testMvc(String name) {
+        System.out.println("我被调用了...");
+        return "testMvc: " + name;
     }
 
 }
