@@ -1,6 +1,6 @@
 package com.simple.algorithm.labuladong.chapter01.designmydata.lru;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * 功能描述:
