@@ -27,12 +27,12 @@ public class GeneratorData {
         for (int i = 0; i < 10000; i++) {
             SingleTable singleTable = new SingleTable();
             singleTable.setId(i + 1);
-            singleTable.setKey1(getRandomCode(4, 1));
+            singleTable.setKey1(getRandomCode(4, i % 7));
             singleTable.setKey2(i);
-            singleTable.setKey3(getRandomCode(3, 1));
-            singleTable.setKeyPart1(getRandomCode(4, 0));
-            singleTable.setKeyPart1(getRandomCode(4, 1));
-            singleTable.setKeyPart1(getRandomCode(4, 2));
+            singleTable.setKey3(getRandomCode(3, i % 7));
+            singleTable.setKeyPart1(getRandomCode(4, (i+1) % 7));
+            singleTable.setKeyPart2(getRandomCode(5, (i+2) % 7));
+            singleTable.setKeyPart3(getRandomCode(4, (i+3) % 7));
             singleTable.setCommonField((10000 % 99) + "");
             singleTables.add(singleTable);
         }
