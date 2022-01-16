@@ -1,7 +1,7 @@
 package com.simple.algorithm.labuladong.chapter00.backtrace;
 
 import com.simple.algorithm.test.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
