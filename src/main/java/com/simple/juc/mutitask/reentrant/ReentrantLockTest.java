@@ -1,6 +1,6 @@
 package com.simple.juc.mutitask.reentrant;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.util.concurrent.locks.ReentrantLock;
 
