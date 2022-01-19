@@ -24,13 +24,17 @@ import javax.annotation.sql.DataSourceDefinition;
 public class MianshiApplication {
     public static void main(String[] args) {
         // 1. 通过SpringApplication直接调用静态run方法；
-        SpringApplication.run(MianshiApplication.class, args);
+        // SpringApplication.run(MianshiApplication.class, args);
 
         // 2. 通过SpringApplicationBuilder构建出SpringApplication启动
-        new SpringApplicationBuilder(MianshiApplication.class).run(args);
+        new SpringApplicationBuilder(MianshiApplication.class)
+                .listeners(event -> {
+                    System.err.println("接收到各种事件：" + event.getClass().getSimpleName());
+                })
+                .run(args);
 
         // 3. 通过构造器初始化SpringApplication，然后在调用run方法
-        SpringApplication springApplication = new SpringApplication(MianshiApplication.class);
-        springApplication.run();
+        // SpringApplication springApplication = new SpringApplication(MianshiApplication.class);
+        // springApplication.run();
     }
 }
