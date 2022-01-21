@@ -1,4 +1,4 @@
-package com.simple.algorithm.test.demo;
+package com.simple.algorithm.test.demo.link;
 
 import com.simple.algorithm.labuladong.common.model.LinkNode;
 import org.junit.Test;
