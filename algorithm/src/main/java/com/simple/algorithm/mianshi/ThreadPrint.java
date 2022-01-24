@@ -1,4 +1,4 @@
-package com.simple.algorithm.test.demo;
+package com.simple.algorithm.mianshi;
 
 /**
  * 功能描述: 线程打印

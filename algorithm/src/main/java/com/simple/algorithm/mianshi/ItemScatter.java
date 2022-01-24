@@ -1,4 +1,4 @@
-package com.simple.algorithm.test.demo;
+package com.simple.algorithm.mianshi;
 
 import lombok.Data;
 
@@ -87,7 +87,7 @@ public class ItemScatter {
     public static List<ItemDO> scatter(List<ItemDO> itemList, int round, int k) {
         List<ItemDO> newItemDOs = new LinkedList<>();
         // 这里通过 商家id -> List<ItemDO> 进行缓存；通过groupBy拿到对应的数据
-        Map<Long, List<ItemDO>> itemDOKeyValue = itemList.stream().collect(Collectors.toMap(e -> e.getSellerId(), e -> e));
+        Map<Long, List<ItemDO>> itemDOKeyValue = new HashMap<>();
         // 假设
         while (round > 0) {
             // 先从map中找出对应商家的前k个元素
@@ -111,7 +111,7 @@ public class ItemScatter {
     }
 
     // 根据 一些操作 可移除指定的元素
-    public static void removeItem(List<ItemDO> itemList, long itemId, long sellerId){
+    public static void removeItem(List<ItemDO> itemList, long itemId, long sellerId) {
         //
         return;
     }
