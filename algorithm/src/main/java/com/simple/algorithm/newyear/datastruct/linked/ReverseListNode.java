@@ -51,4 +51,29 @@ public class ReverseListNode {
         return last;
     }
 
+    /**
+     * 递归的方式反转第N个节点
+     */
+    ListNode pre = null;
+
+    public ListNode reverseNDG(ListNode root, int n) {
+        if (n == 1) {
+            pre = root.next;
+            return root;
+        }
+        ListNode last = reverseNDG(root.next, n - 1);
+        root.next.next = root;
+        root.next = pre;
+        return last;
+    }
+
+    public ListNode reversePartNNode(ListNode root, int n, int m) {
+        if (m == 1) {
+            return reverseNDG(root, n);
+        }
+        // 这里就相当于一直让m趋近于1，一直减
+        root.next = reversePartNNode(root.next, n - 1, m - 1);
+        return root;
+    }
+
 }
