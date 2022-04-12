@@ -5,7 +5,13 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 import java.lang.management.ManagementFactory;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author WuChengXing
@@ -21,6 +27,20 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
     public static String YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
 
     public static String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
+
+    public final static String ADD = "add";
+
+    public final static String REDUCE = "reduce";
+
+    public static final String YEAR = "year";
+    public static final String MONTH = "month";
+    public static final String DAY = "day";
+    public static final String HOUR = "hour";
+    public static final String MINUTE = "minute";
+    public static final String SECOND = "second";
+    public static final String MILL = "mill";
+    public static final String MICRO = "micro";
+    public static final String NANO = "nano";
 
     private static String[] parsePatterns = {
             "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM",
@@ -158,6 +178,46 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		else
 			return false;
 		*/
+    }
+
+    private static Date randomAddOrReduceMinute(Date date, Integer origin, Integer bound, String calType) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int i = ThreadLocalRandom.current().nextInt(origin, bound + 1);
+        if ("add".equals(calType)) {
+            calendar.add(Calendar.MINUTE, i);
+        } else if ("reduce".equals(calType)) {
+            calendar.add(Calendar.MINUTE, -i);
+        }
+        return calendar.getTime();
+    }
+
+    public static LocalDateTime date2LocalDateTime(Date date) {
+        date = Objects.isNull(date) ? new Date() : date;
+        Instant instant = date.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+        return instant.atZone(zoneId).toLocalDateTime();
+    }
+
+    public static int twoDataDiff(Date var1, Date var2, String var3) {
+        LocalDateTime ldt1 = date2LocalDateTime(var1);
+        LocalDateTime ldt2 = date2LocalDateTime(var2);
+        switch (var3) {
+            case YEAR:
+                return Math.abs(ldt1.getYear() - ldt2.getYear());
+            case MONTH:
+                return Math.abs(ldt1.getMonthValue() - ldt2.getMonthValue());
+            case DAY:
+                return Math.abs(ldt1.getDayOfYear() - ldt2.getDayOfYear());
+            case HOUR:
+                return Math.abs(ldt1.getHour() - ldt2.getHour());
+            case MINUTE:
+                return Math.abs(ldt1.getMinute() - ldt2.getMinute());
+            case SECOND:
+                return Math.abs(ldt1.getSecond() - ldt2.getSecond());
+            default:
+                return 0;
+        }
     }
 
 }
